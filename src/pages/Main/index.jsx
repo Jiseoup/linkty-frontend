@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TitleLogo from '../../assets/title_logo.svg';
+import Header from '../../components/Common/Header';
 import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
 import UrlShortener from '../../components/Main/UrlShortener';
@@ -22,7 +23,7 @@ function Main() {
   const [expireDate, setExpireDate] = useState('');
   const [alias, setAlias] = useState('');
 
-  const handleShorten = async (e) => {
+  const onShortenClick = async (e) => {
     e.preventDefault();
 
     try {
@@ -43,44 +44,49 @@ function Main() {
   };
 
   return (
-    <MainWrapper>
-      <MainCard>
-        {/* Title Logo. */}
-        <img
-          src={TitleLogo}
-          alt="Title Logo"
-          width={320}
-          style={{ marginBottom: '20px' }}
-        />
+    <>
+      {/* Header Component. */}
+      <Header />
 
-        {/* Main Description. */}
-        <MainDescription>
-          Linkty는 무료로 이용할 수 있는 URL 단축 서비스입니다.
-        </MainDescription>
-
-        <FormBox component="form" onSubmit={handleShorten}>
-          {/* URL Shortener Component. */}
-          <UrlShortener
-            originalUrl={originalUrl}
-            setOriginalUrl={setOriginalUrl}
+      <MainWrapper>
+        <MainCard>
+          {/* Title Logo. */}
+          <img
+            src={TitleLogo}
+            alt="Linkty Title Logo"
+            width={320}
+            style={{ marginBottom: '20px' }}
           />
 
-          {/* Advanced Settings Component. */}
-          <AdvancedSettings
-            activeDate={activeDate}
-            expireDate={expireDate}
-            alias={alias}
-            setActiveDate={setActiveDate}
-            setExpireDate={setExpireDate}
-            setAlias={setAlias}
-          />
-        </FormBox>
+          {/* Main Description. */}
+          <MainDescription>
+            Linkty는 무료로 이용할 수 있는 URL 단축 서비스입니다.
+          </MainDescription>
 
-        {/* Shorten URL Box Component. */}
-        <ShortenUrlBox shortenUrl={shortenUrl} />
-      </MainCard>
-      <MainFooter>© 2025 Linkty. All rights reserved.</MainFooter>
-    </MainWrapper>
+          <FormBox component="form" onSubmit={onShortenClick}>
+            {/* URL Shortener Component. */}
+            <UrlShortener
+              originalUrl={originalUrl}
+              setOriginalUrl={setOriginalUrl}
+            />
+
+            {/* Advanced Settings Component. */}
+            <AdvancedSettings
+              activeDate={activeDate}
+              expireDate={expireDate}
+              alias={alias}
+              setActiveDate={setActiveDate}
+              setExpireDate={setExpireDate}
+              setAlias={setAlias}
+            />
+          </FormBox>
+
+          {/* Shorten URL Box Component. */}
+          <ShortenUrlBox shortenUrl={shortenUrl} />
+        </MainCard>
+        <MainFooter>© 2025 Linkty. All rights reserved.</MainFooter>
+      </MainWrapper>
+    </>
   );
 }
 
