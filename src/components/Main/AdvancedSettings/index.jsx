@@ -9,9 +9,9 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 
-import RowBox from '../../Common/RowBox';
+import RowBox from '../RowBox';
 
-// Component for Advanced Settings.
+// Component for Advanced Settings operations.
 function AdvancedSettings({
   activeDate,
   expireDate,

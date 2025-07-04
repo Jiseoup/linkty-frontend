@@ -2,11 +2,11 @@ import React from 'react';
 
 import { TextField } from '@mui/material';
 
-import RowBox from '../../Common/RowBox';
+import RowBox from '../RowBox';
 
 import { ShortenButton } from './styled';
 
-// Component for URL Shortening.
+// Component for URL Shortening operations.
 function UrlShortener({ originalUrl, setOriginalUrl }) {
   return (
     <RowBox>
