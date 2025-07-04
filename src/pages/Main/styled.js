@@ -21,7 +21,7 @@ export const MainCard = styled('div')({
   alignItems: 'center',
 });
 
-export const MainDesc = styled('div')({
+export const MainDescription = styled('div')({
   marginBottom: '30px',
   color: '#888',
   fontSize: '20px',

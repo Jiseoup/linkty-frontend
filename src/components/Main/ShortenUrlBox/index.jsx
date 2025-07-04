@@ -2,6 +2,7 @@ import React from 'react';
 
 import { UrlBox, UrlLabel, UrlLink } from './styled';
 
+// Component for showing the Shorten URL.
 function ShortenUrlBox({ shortenUrl }) {
   if (!shortenUrl) return null;
 

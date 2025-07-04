@@ -7,7 +7,13 @@ import UrlShortener from '../../components/Main/UrlShortener';
 import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
-import { MainWrapper, MainCard, MainDesc, MainFooter, FormBox } from './styled';
+import {
+  MainWrapper,
+  MainCard,
+  MainDescription,
+  MainFooter,
+  FormBox,
+} from './styled';
 
 function Main() {
   const [shortenUrl, setShortenUrl] = useState('');
@@ -48,9 +54,9 @@ function Main() {
         />
 
         {/* Main Description. */}
-        <MainDesc>
+        <MainDescription>
           Linkty는 무료로 이용할 수 있는 URL 단축 서비스입니다.
-        </MainDesc>
+        </MainDescription>
 
         <FormBox component="form" onSubmit={handleShorten}>
           {/* URL Shortener Component. */}
@@ -70,6 +76,7 @@ function Main() {
           />
         </FormBox>
 
+        {/* Shorten URL Box Component. */}
         <ShortenUrlBox shortenUrl={shortenUrl} />
       </MainCard>
       <MainFooter>© 2025 Linkty. All rights reserved.</MainFooter>
