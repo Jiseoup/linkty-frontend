@@ -21,15 +21,6 @@ export const MainCard = styled('div')({
   alignItems: 'center',
 });
 
-export const MainDescription = styled('div')({
-  marginBottom: '30px',
-  color: '#888',
-  fontSize: '20px',
-  fontWeight: 500,
-  letterSpacing: '1px',
-  textAlign: 'center',
-});
-
 export const MainFooter = styled('footer')({
   marginTop: '40px',
   color: '#fff',
@@ -40,3 +31,11 @@ export const MainFooter = styled('footer')({
 export const FormBox = styled(Box)({
   width: '100%',
 });
+
+export const RowBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  width: '100%',
+  alignItems: 'center',
+  gap: theme.spacing(2),
+  marginBottom: theme.spacing(1),
+}));

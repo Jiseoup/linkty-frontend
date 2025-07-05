@@ -1,5 +1,6 @@
-import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
+import Button from '../../common/Button';
 
 export const ShortenButton = styled(Button)({
   background: 'linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%)',

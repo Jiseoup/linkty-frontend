@@ -1,20 +1,14 @@
 import React, { useState } from 'react';
 
-import TitleLogo from '../../assets/title_logo.svg';
-import Header from '../../components/Common/Header';
-import AdvancedSettings from '../../components/Main/AdvancedSettings';
-import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
-import UrlShortener from '../../components/Main/UrlShortener';
+import Header from '../../components/common/Header';
+import AdvancedSettings from '../../components/main/AdvancedSettings';
+import ShortenUrlBox from '../../components/main/ShortenUrlBox';
+import Title from '../../components/main/Title';
+import UrlShortener from '../../components/main/UrlShortener';
 import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
-import {
-  MainWrapper,
-  MainCard,
-  MainDescription,
-  MainFooter,
-  FormBox,
-} from './styled';
+import { MainWrapper, MainCard, MainFooter, FormBox, RowBox } from './styled';
 
 function Main() {
   const [shortenUrl, setShortenUrl] = useState('');
@@ -45,30 +39,22 @@ function Main() {
 
   return (
     <>
-      {/* Header Component. */}
+      {/* Main Header. */}
       <Header />
 
       <MainWrapper>
         <MainCard>
-          {/* Title Logo. */}
-          <img
-            src={TitleLogo}
-            alt="Linkty Title Logo"
-            width={320}
-            style={{ marginBottom: '20px' }}
-          />
-
-          {/* Main Description. */}
-          <MainDescription>
-            Linkty는 무료로 이용할 수 있는 URL 단축 서비스입니다.
-          </MainDescription>
+          {/* Main Title. */}
+          <Title />
 
           <FormBox component="form" onSubmit={onShortenClick}>
             {/* URL Shortener Component. */}
-            <UrlShortener
-              originalUrl={originalUrl}
-              setOriginalUrl={setOriginalUrl}
-            />
+            <RowBox>
+              <UrlShortener
+                originalUrl={originalUrl}
+                setOriginalUrl={setOriginalUrl}
+              />
+            </RowBox>
 
             {/* Advanced Settings Component. */}
             <AdvancedSettings

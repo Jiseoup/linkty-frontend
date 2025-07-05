@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import { TextField, Collapse, Button } from '@mui/material';
+import { Collapse, Button } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 
+import TextField from '../../common/TextField';
 import RowBox from '../RowBox';
 
 // Component for Advanced Settings operations.

@@ -3,7 +3,7 @@ import React from 'react';
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
-import CommonButton from '../CommonButton';
+import Button from '../Button';
 
 import Logo from './Logo';
 import { HeaderWrapper, ButtonWrapper } from './styled';
@@ -11,27 +11,23 @@ import { HeaderWrapper, ButtonWrapper } from './styled';
 function Header() {
   return (
     <HeaderWrapper component="header">
-      {/* Linkty Logo. */}
+      {/* Header Logo. */}
       <Logo />
 
       <ButtonWrapper>
         {/* Login Button. */}
-        <CommonButton
-          variant="outlined"
-          color="primary"
-          startIcon={<LoginIcon />}
-        >
+        <Button variant="outlined" color="primary" startIcon={<LoginIcon />}>
           로그인
-        </CommonButton>
+        </Button>
 
         {/* Register Button. */}
-        <CommonButton
+        <Button
           variant="contained"
           color="primary"
           startIcon={<PersonAddIcon />}
         >
           회원가입
-        </CommonButton>
+        </Button>
       </ButtonWrapper>
     </HeaderWrapper>
   );
