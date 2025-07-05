@@ -2,53 +2,37 @@ import React from 'react';
 
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import { useNavigate } from 'react-router-dom';
 
-import TitleLogo from '../../../assets/title_logo.svg';
+import CommonButton from '../CommonButton';
 
-import {
-  HeaderWrapper,
-  HeaderInner,
-  LogoWrapper,
-  UserButtonWrapper,
-  UserButton,
-} from './styled';
+import Logo from './Logo';
+import { HeaderWrapper, ButtonWrapper } from './styled';
 
 function Header() {
-  const navigate = useNavigate();
-
-  const onLogoClick = () => {
-    navigate('/');
-  };
-
   return (
     <HeaderWrapper component="header">
-      <HeaderInner>
-        {/* Title Logo. */}
-        <LogoWrapper onClick={onLogoClick}>
-          <img src={TitleLogo} alt="Linkty Title Logo" style={{ height: 32 }} />
-        </LogoWrapper>
+      {/* Linkty Logo. */}
+      <Logo />
 
-        <UserButtonWrapper>
-          {/* Login Button. */}
-          <UserButton
-            variant="outlined"
-            color="primary"
-            startIcon={<LoginIcon />}
-          >
-            로그인
-          </UserButton>
+      <ButtonWrapper>
+        {/* Login Button. */}
+        <CommonButton
+          variant="outlined"
+          color="primary"
+          startIcon={<LoginIcon />}
+        >
+          로그인
+        </CommonButton>
 
-          {/* Register Button. */}
-          <UserButton
-            variant="contained"
-            color="primary"
-            startIcon={<PersonAddIcon />}
-          >
-            회원가입
-          </UserButton>
-        </UserButtonWrapper>
-      </HeaderInner>
+        {/* Register Button. */}
+        <CommonButton
+          variant="contained"
+          color="primary"
+          startIcon={<PersonAddIcon />}
+        >
+          회원가입
+        </CommonButton>
+      </ButtonWrapper>
     </HeaderWrapper>
   );
 }
