@@ -9,7 +9,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 
-import TextField from '../../common/TextField';
+import TextField from '../../Common/TextField';
 import RowBox from '../RowBox';
 
 // Component for Advanced Settings operations.

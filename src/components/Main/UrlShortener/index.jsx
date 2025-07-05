@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TextField from '../../common/TextField';
+import TextField from '../../Common/TextField';
 
 import { ShortenButton } from './styled';
 

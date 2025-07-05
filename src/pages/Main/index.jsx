@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import Header from '../../components/common/Header';
-import AdvancedSettings from '../../components/main/AdvancedSettings';
-import ShortenUrlBox from '../../components/main/ShortenUrlBox';
-import Title from '../../components/main/Title';
-import UrlShortener from '../../components/main/UrlShortener';
+import Header from '../../components/Common/Header';
+import AdvancedSettings from '../../components/Main/AdvancedSettings';
+import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
+import Title from '../../components/Main/Title';
+import UrlShortener from '../../components/Main/UrlShortener';
 import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
