@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const MainWrapper = styled('div')({
+export const Wrapper = styled('div')({
   background: 'linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%)',
   minHeight: '100vh',
   display: 'flex',
@@ -10,7 +10,7 @@ export const MainWrapper = styled('div')({
   justifyContent: 'center',
 });
 
-export const MainCard = styled('div')({
+export const Card = styled('div')({
   background: '#ffffff',
   boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)',
   borderRadius: '20px',
@@ -21,21 +21,13 @@ export const MainCard = styled('div')({
   alignItems: 'center',
 });
 
-export const MainFooter = styled('footer')({
+export const FormBox = styled(Box)({
+  width: '100%',
+});
+
+export const Footer = styled('footer')({
   marginTop: '40px',
   color: '#fff',
   fontSize: '20px',
   opacity: 0.8,
 });
-
-export const FormBox = styled(Box)({
-  width: '100%',
-});
-
-export const RowBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  width: '100%',
-  alignItems: 'center',
-  gap: theme.spacing(2),
-  marginBottom: theme.spacing(1),
-}));

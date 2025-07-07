@@ -8,16 +8,17 @@ import UrlShortener from '../../components/Main/UrlShortener';
 import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
-import { MainWrapper, MainCard, MainFooter, FormBox, RowBox } from './styled';
+import { Wrapper, Card, Footer, FormBox } from './styled';
 
 function Main() {
-  const [shortenUrl, setShortenUrl] = useState('');
-  const [originalUrl, setOriginalUrl] = useState('');
-  const [activeDate, setActiveDate] = useState('');
-  const [expireDate, setExpireDate] = useState('');
-  const [alias, setAlias] = useState('');
+  const [shortenUrl, setShortenUrl] = useState(null);
+  const [originalUrl, setOriginalUrl] = useState(null);
+  const [activeDate, setActiveDate] = useState(null);
+  const [expireDate, setExpireDate] = useState(null);
+  const [alias, setAlias] = useState(null);
 
-  const onShortenClick = async (e) => {
+  // Shorten URL Button Click Handler.
+  const onShortenButtonClick = async (e) => {
     e.preventDefault();
 
     try {
@@ -26,35 +27,33 @@ function Main() {
 
       const data = await postShortenUrl({
         originalUrl: originalUrl,
-        activeDate: formattedActiveDate,
-        expireDate: formattedExpireDate,
-        alias: alias,
+        activeDate: formattedActiveDate || null,
+        expireDate: formattedExpireDate || null,
+        alias: alias || null,
       });
       setShortenUrl(data.shortenUrl);
     } catch (error) {
-      // Error Handling.
+      // TODO: Should add Error Handling.
       console.error(error);
     }
   };
 
   return (
     <>
-      {/* Main Header. */}
+      {/* Main Page Header. */}
       <Header />
 
-      <MainWrapper>
-        <MainCard>
-          {/* Main Title. */}
+      <Wrapper>
+        <Card>
+          {/* Main Page Title. */}
           <Title />
 
-          <FormBox component="form" onSubmit={onShortenClick}>
+          <FormBox component="form" onSubmit={onShortenButtonClick}>
             {/* URL Shortener Component. */}
-            <RowBox>
-              <UrlShortener
-                originalUrl={originalUrl}
-                setOriginalUrl={setOriginalUrl}
-              />
-            </RowBox>
+            <UrlShortener
+              originalUrl={originalUrl}
+              setOriginalUrl={setOriginalUrl}
+            />
 
             {/* Advanced Settings Component. */}
             <AdvancedSettings
@@ -69,9 +68,11 @@ function Main() {
 
           {/* Shorten URL Box Component. */}
           <ShortenUrlBox shortenUrl={shortenUrl} />
-        </MainCard>
-        <MainFooter>© 2025 Linkty. All rights reserved.</MainFooter>
-      </MainWrapper>
+        </Card>
+
+        {/* Main Page Footer. */}
+        <Footer>© 2025 Linkty. All rights reserved.</Footer>
+      </Wrapper>
     </>
   );
 }

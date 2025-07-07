@@ -8,6 +8,7 @@ import Button from '../Button';
 import Logo from './Logo';
 import { HeaderWrapper, ButtonWrapper } from './styled';
 
+// Common Header Component.
 function Header() {
   return (
     <HeaderWrapper component="header">

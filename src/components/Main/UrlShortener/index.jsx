@@ -1,13 +1,14 @@
 import React from 'react';
 
 import TextField from '../../Common/TextField';
+import RowBox from '../RowBox';
 
 import { ShortenButton } from './styled';
 
 // Component for URL Shortening operations.
 function UrlShortener({ originalUrl, setOriginalUrl }) {
   return (
-    <>
+    <RowBox>
       {/* URL Input TextField. */}
       <TextField
         type="url"
@@ -18,10 +19,8 @@ function UrlShortener({ originalUrl, setOriginalUrl }) {
       />
 
       {/* URL Shorten Button. */}
-      <ShortenButton type="submit" variant="contained">
-        단축하기
-      </ShortenButton>
-    </>
+      <ShortenButton text="단축하기" type="submit" variant="contained" />
+    </RowBox>
   );
 }
 
