@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
 import Card from '../../components/Common/Card';
 import Footer from '../../components/Common/Footer';
+import FormBox from '../../components/Common/FormBox';
 import Header from '../../components/Common/Header';
 import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
@@ -49,7 +50,7 @@ function Main() {
           {/* Main Page Title. */}
           <Title />
 
-          <form style={{ width: '100%' }} onSubmit={onShortenButtonClick}>
+          <FormBox onSubmit={onShortenButtonClick}>
             {/* URL Shortener Component. */}
             <UrlShortener
               originalUrl={originalUrl}
@@ -65,7 +66,7 @@ function Main() {
               setExpireDate={setExpireDate}
               setAlias={setAlias}
             />
-          </form>
+          </FormBox>
 
           {/* Shorten URL Box Component. */}
           <ShortenUrlBox shortenUrl={shortenUrl} />
