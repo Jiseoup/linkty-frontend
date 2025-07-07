@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { TextField as MuiTextField } from '@mui/material';
+import { StyledTextField } from './styled';
 
+// Basic TextField Component.
 function TextField({ ...props }) {
-  return <MuiTextField {...props} />;
+  return <StyledTextField {...props} />;
 }
 
 TextField.defaultProps = {

@@ -1,7 +1,7 @@
-import { Button as MuiButton } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const Button = styled(MuiButton)({
+export const StyledButton = styled(Button)({
   fontSize: 14,
   fontWeight: 500,
   minWidth: 100,

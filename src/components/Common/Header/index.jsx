@@ -16,18 +16,20 @@ function Header() {
 
       <ButtonWrapper>
         {/* Login Button. */}
-        <Button variant="outlined" color="primary" startIcon={<LoginIcon />}>
-          로그인
-        </Button>
+        <Button
+          text="로그인"
+          variant="outlined"
+          color="primary"
+          startIcon={<LoginIcon />}
+        />
 
         {/* Register Button. */}
         <Button
+          text="회원가입"
           variant="contained"
           color="primary"
           startIcon={<PersonAddIcon />}
-        >
-          회원가입
-        </Button>
+        />
       </ButtonWrapper>
     </HeaderWrapper>
   );
