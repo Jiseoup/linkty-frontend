@@ -9,13 +9,13 @@ import { LogoWrapper } from './styled';
 function Logo() {
   const navigate = useNavigate();
 
-  // Logo onClick Handler.
-  const onClick = () => {
+  // Logo image click handler.
+  const onLogoClick = () => {
     navigate('/');
   };
 
   return (
-    <LogoWrapper onClick={onClick}>
+    <LogoWrapper onClick={onLogoClick}>
       <img src={TitleLogo} alt="Linkty Logo" style={{ height: 32 }} />
     </LogoWrapper>
   );

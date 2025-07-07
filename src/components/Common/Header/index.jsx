@@ -2,6 +2,7 @@ import React from 'react';
 
 import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../Button';
 
@@ -10,6 +11,13 @@ import { HeaderWrapper, ButtonWrapper } from './styled';
 
 // Common Header Component.
 function Header() {
+  const navigate = useNavigate();
+
+  // Register button click handler.
+  const onRegisterClick = () => {
+    navigate('/register');
+  };
+
   return (
     <HeaderWrapper component="header">
       {/* Header Logo. */}
@@ -30,6 +38,7 @@ function Header() {
           variant="contained"
           color="primary"
           startIcon={<PersonAddIcon />}
+          onClick={onRegisterClick}
         />
       </ButtonWrapper>
     </HeaderWrapper>
