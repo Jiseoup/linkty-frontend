@@ -5,7 +5,7 @@ import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
 import Title from '../../components/Main/Title';
 import UrlShortener from '../../components/Main/UrlShortener';
-import { postShortenUrl } from '../../services/shortenUrl';
+import { postShortenUrl } from '../../services/Url/postShortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
 import { Wrapper, Card, Footer, FormBox } from './styled';
