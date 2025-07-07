@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
+import Card from '../../components/Common/Card';
+import Footer from '../../components/Common/Footer';
 import Header from '../../components/Common/Header';
 import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
@@ -7,8 +10,6 @@ import Title from '../../components/Main/Title';
 import UrlShortener from '../../components/Main/UrlShortener';
 import { postShortenUrl } from '../../services/Url/postShortenUrl';
 import { formatDatetime } from '../../utils/datetime';
-
-import { Wrapper, Card, Footer, FormBox } from './styled';
 
 function Main() {
   const [shortenUrl, setShortenUrl] = useState(null);
@@ -43,12 +44,12 @@ function Main() {
       {/* Main Page Header. */}
       <Header />
 
-      <Wrapper>
+      <BackgroundWrapper>
         <Card>
           {/* Main Page Title. */}
           <Title />
 
-          <FormBox component="form" onSubmit={onShortenButtonClick}>
+          <form style={{ width: '100%' }} onSubmit={onShortenButtonClick}>
             {/* URL Shortener Component. */}
             <UrlShortener
               originalUrl={originalUrl}
@@ -64,15 +65,15 @@ function Main() {
               setExpireDate={setExpireDate}
               setAlias={setAlias}
             />
-          </FormBox>
+          </form>
 
           {/* Shorten URL Box Component. */}
           <ShortenUrlBox shortenUrl={shortenUrl} />
         </Card>
 
         {/* Main Page Footer. */}
-        <Footer>© 2025 Linkty. All rights reserved.</Footer>
-      </Wrapper>
+        <Footer />
+      </BackgroundWrapper>
     </>
   );
 }
