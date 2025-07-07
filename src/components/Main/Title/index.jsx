@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TitleLogo from '../../../assets/title_logo.svg';
+import TitleLogo from '../../../assets/title_logo.png';
 
 import { Image, Description } from './styled';
 

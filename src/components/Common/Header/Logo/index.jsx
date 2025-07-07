@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import TitleLogo from '../../../../assets/title_logo.svg';
+import TitleLogo from '../../../../assets/title_logo.png';
 
 import { LogoWrapper } from './styled';
 
