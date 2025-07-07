@@ -37,23 +37,21 @@ function AdvancedSettings({
             label="URL 활성일"
             value={activeDate ? dayjs(activeDate) : null}
             onChange={setActiveDate}
-            sx={{ mb: 1 }}
           />
 
           <DateTimePicker
             label="URL 만료일"
             value={expireDate ? dayjs(expireDate) : null}
             onChange={setExpireDate}
-            sx={{ mb: 1 }}
           />
         </RowBox>
 
         {/* URL Alias TextField. */}
-        <RowBox>
+        <RowBox sx={{ mb: 0 }}>
           <TextField
             type="text"
             label="URL 별칭"
-            placeholder="URL 별칭을 입력하세요."
+            placeholder="URL 별칭을 입력해주세요."
             value={alias}
             onChange={(e) => setAlias(e.target.value)}
           />
