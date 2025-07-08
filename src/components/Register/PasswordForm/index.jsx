@@ -6,7 +6,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
 
-function PasswordForm({ password, passwordConfirm, onChange }) {
+function PasswordForm({
+  password,
+  passwordConfirm,
+  onPasswordChange,
+  onPasswordConfirmChange,
+}) {
   const passwordMatch = password === passwordConfirm;
   const showPasswordMatchMessage = !!password && !!passwordConfirm;
 
@@ -20,7 +25,7 @@ function PasswordForm({ password, passwordConfirm, onChange }) {
           label="비밀번호"
           placeholder="비밀번호를 입력해주세요."
           value={password}
-          onChange={onChange}
+          onChange={onPasswordChange}
           required
         />
       </RowBox>
@@ -33,7 +38,7 @@ function PasswordForm({ password, passwordConfirm, onChange }) {
           label="비밀번호 확인"
           placeholder="비밀번호를 한 번 더 입력해주세요."
           value={passwordConfirm}
-          onChange={onChange}
+          onChange={onPasswordConfirmChange}
           required
           error={!passwordMatch && showPasswordMatchMessage}
           helperText={

@@ -6,7 +6,7 @@ import TextField from '../../Common/TextField';
 import { EmailButton } from './styled';
 
 // Component for email input and validation.
-function EmailInput({ email, onChange }) {
+function EmailInput({ email, onEmailChange }) {
   return (
     <>
       <RowBox>
@@ -17,7 +17,7 @@ function EmailInput({ email, onChange }) {
           label="이메일"
           placeholder="이메일을 입력해주세요."
           value={email}
-          onChange={onChange}
+          onChange={onEmailChange}
           required
         />
 
