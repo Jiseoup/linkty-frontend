@@ -2,8 +2,6 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import TitleLogo from '../../../../assets/title_logo.png';
-
 import { LogoWrapper } from './styled';
 
 function Logo() {
@@ -16,7 +14,7 @@ function Logo() {
 
   return (
     <LogoWrapper onClick={onLogoClick}>
-      <img src={TitleLogo} alt="Linkty Logo" style={{ height: 32 }} />
+      <img src="/title_logo.png" alt="Linkty Logo" style={{ height: 32 }} />
     </LogoWrapper>
   );
 }

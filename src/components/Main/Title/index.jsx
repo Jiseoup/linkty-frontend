@@ -1,14 +1,12 @@
 import React from 'react';
 
-import TitleLogo from '../../../assets/title_logo.png';
-
 import { Image, Description } from './styled';
 
 function Title() {
   return (
     <>
       {/* Title Logo Image. */}
-      <Image src={TitleLogo} alt="Linkty Logo" />
+      <Image src="/title_logo.png" alt="Linkty Logo" />
 
       {/* Title Description. */}
       <Description>
