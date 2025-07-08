@@ -29,6 +29,7 @@
         "printWidth": 80
       }
     ],
+    "import/no-named-as-default": "off",
     "import/order": [
       "error",
       {
