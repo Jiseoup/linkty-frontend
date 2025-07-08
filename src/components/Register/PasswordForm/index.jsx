@@ -1,9 +1,15 @@
 import React from 'react';
 
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
 
 function PasswordForm({ password, passwordConfirm, onChange }) {
+  const passwordMatch = password === passwordConfirm;
+  const showPasswordMatchMessage = !!password && !!passwordConfirm;
+
   return (
     <>
       <RowBox>
@@ -29,6 +35,21 @@ function PasswordForm({ password, passwordConfirm, onChange }) {
           value={passwordConfirm}
           onChange={onChange}
           required
+          error={!passwordMatch && showPasswordMatchMessage}
+          helperText={
+            !passwordMatch && showPasswordMatchMessage
+              ? '비밀번호가 일치하지 않습니다.'
+              : null
+          }
+          InputProps={{
+            endAdornment: showPasswordMatchMessage ? (
+              passwordMatch ? (
+                <CheckIcon style={{ color: 'green' }} />
+              ) : (
+                <CloseIcon style={{ color: 'red' }} />
+              )
+            ) : null,
+          }}
         />
       </RowBox>
     </>
