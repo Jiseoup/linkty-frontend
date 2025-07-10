@@ -9,10 +9,13 @@ import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
 import Title from '../../components/Main/Title';
 import UrlShortener from '../../components/Main/UrlShortener';
+import { useAlertContext } from '../../contexts/AlertContext';
 import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
 function Main() {
+  const { showError } = useAlertContext();
+
   const [shortenUrl, setShortenUrl] = useState(null);
   const [originalUrl, setOriginalUrl] = useState(null);
   const [activeDate, setActiveDate] = useState(null);
@@ -35,9 +38,10 @@ function Main() {
       });
       setShortenUrl(data.shortenUrl);
     } catch (error) {
-      // TODO: Should add Error Handling.
-      alert(
-        'URL 단축 실패: ' + (error.response?.data?.message || error.message)
+      // TODO: Should add Error Handling. (올바른 URL을 입력해주세요?)
+      showError(
+        'URL 단축에 실패했습니다.',
+        error.response?.data?.message || error.message
       );
     }
   };
@@ -58,6 +62,7 @@ function Main() {
               originalUrl={originalUrl}
               setOriginalUrl={setOriginalUrl}
             />
+            {/* TODO: url은 http:// 또는 https://를 반드시 포함해야 합니다. helperText? */}
 
             {/* Advanced Settings Component. */}
             <AdvancedSettings

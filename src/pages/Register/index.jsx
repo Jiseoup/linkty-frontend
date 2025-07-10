@@ -8,6 +8,7 @@ import FormBox from '../../components/Common/FormBox';
 import Header from '../../components/Common/Header';
 import EmailForm from '../../components/Register/EmailForm';
 import PasswordForm from '../../components/Register/PasswordForm';
+import { useAlertContext } from '../../contexts/AlertContext';
 import {
   postVerification,
   postVerificationConfirm,
@@ -15,6 +16,8 @@ import {
 import { postRegister } from '../../services/user';
 
 function Register() {
+  const { showSuccess, showError } = useAlertContext();
+
   const [email, setEmail] = useState(null);
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [code, setCode] = useState(null);
@@ -33,12 +36,16 @@ function Register() {
     try {
       await postVerification({ email });
       setIsEmailSent(true);
-      alert('인증번호가 발송되었습니다.');
+      showSuccess(
+        '인증번호가 발송되었습니다.',
+        `${email} 메일함을 확인해주세요.` +
+          '\n메일이 오지 않으면 스팸함을 확인하거나, 재발송을 시도해 주세요.'
+      );
     } catch (error) {
       // TODO: Should add Error Handling.
-      alert(
-        '인증번호 발송 실패: ' +
-          (error.response?.data?.message || error.message)
+      showError(
+        '인증번호 발송에 실패했습니다.',
+        error.response?.data?.message || error.message
       );
     }
   };
@@ -48,10 +55,16 @@ function Register() {
     try {
       await postVerificationConfirm({ email, code });
       setIsCodeConfirmed(true);
-      alert('인증이 완료되었습니다.');
+      showSuccess(
+        '이메일 인증이 완료되었습니다.',
+        '회원가입을 이어서 진행해 주세요.'
+      );
     } catch (error) {
-      // TODO: Should add Error Handling.
-      alert('인증 실패: ' + (error.response?.data?.message || error.message));
+      // TODO: Should add Error Handling. (인증번호를 다시 확인해주세요?)
+      showError(
+        '이메일 인증에 실패했습니다.',
+        error.response?.data?.message || error.message
+      );
     }
   };
 
@@ -59,8 +72,21 @@ function Register() {
   const onRegisterButtonClick = async (e) => {
     e.preventDefault();
 
+    // Check if email is sent and code is confirmed.
+    if (!isEmailSent || !isCodeConfirmed) {
+      showError(
+        '이메일 인증이 완료되지 않았습니다.',
+        '이메일 인증을 완료해 주세요.'
+      );
+      return;
+    }
+
+    // Check if password and passwordConfirm are the same.
     if (password !== passwordConfirm) {
-      alert('비밀번호가 일치하지 않습니다.');
+      showError(
+        '비밀번호가 일치하지 않습니다.',
+        '비밀번호를 다시 확인해 주세요.'
+      );
       return;
     }
 
@@ -69,11 +95,16 @@ function Register() {
         email: email,
         password: password,
       });
-      alert('회원가입 성공!');
+      showSuccess(
+        '회원가입을 진심으로 환영합니다!',
+        '로그인 후 Linkty의 모든 서비스를 자유롭게 이용해보세요.'
+      );
+      // TODO: Should add redirect to main or login page.
     } catch (error) {
       // TODO: Should add Error Handling.
-      alert(
-        '회원가입 실패: ' + (error.response?.data?.message || error.message)
+      showError(
+        '회원가입에 실패했습니다.',
+        error.response?.data?.message || error.message
       );
     }
   };

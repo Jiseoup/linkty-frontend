@@ -48,11 +48,13 @@ export const IconCircle = styled(Box)(({ bgcolor }) => ({
 export const TitleText = styled(Typography)({
   fontWeight: 700,
   marginBottom: 8,
+  whiteSpace: 'pre-line',
 });
 
 export const MessageText = styled(Typography)({
   color: '#444444',
-  marginBottom: 12,
+  marginBottom: 8,
+  whiteSpace: 'pre-line',
 });
 
 export const StyledButton = styled(Button)({
