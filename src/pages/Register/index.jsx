@@ -110,7 +110,7 @@ function Register() {
               text="회원가입"
               type="submit"
               variant="contained"
-              color="primary"
+              color="secondary"
               fullWidth
             />
           </FormBox>

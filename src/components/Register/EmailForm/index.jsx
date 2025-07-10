@@ -34,7 +34,7 @@ function EmailInput({
         {/* Send Email Verification Code Button. */}
         <VerificationButton
           text={isEmailSent ? '인증번호 재발송' : '인증번호 발송'}
-          variant="contained"
+          variant={isEmailSent ? 'outlined' : 'contained'}
           color="primary"
           onClick={onVerifyButtonClick}
           disabled={isCodeConfirmed}
