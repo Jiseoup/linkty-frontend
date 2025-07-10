@@ -9,7 +9,7 @@ import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
 import Title from '../../components/Main/Title';
 import UrlShortener from '../../components/Main/UrlShortener';
-import { postShortenUrl } from '../../services/Url/postShortenUrl';
+import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
 function Main() {
@@ -36,7 +36,9 @@ function Main() {
       setShortenUrl(data.shortenUrl);
     } catch (error) {
       // TODO: Should add Error Handling.
-      console.error(error);
+      alert(
+        'URL 단축 실패: ' + (error.response?.data?.message || error.message)
+      );
     }
   };
 

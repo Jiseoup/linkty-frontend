@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 
 import Button from '../../Common/Button';
 
-export const EmailButton = styled(Button)({
+export const VerificationButton = styled(Button)({
   fontSize: '16px',
   fontWeight: '500',
   height: '56px',
@@ -11,5 +11,5 @@ export const EmailButton = styled(Button)({
   padding: '12px 24px',
   whiteSpace: 'nowrap',
   flexShrink: 0,
-  minWidth: '145px',
+  minWidth: '160px',
 });

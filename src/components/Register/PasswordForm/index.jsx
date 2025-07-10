@@ -6,6 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
 
+// Component for password input and validation.
 function PasswordForm({
   password,
   passwordConfirm,

@@ -1,4 +1,4 @@
-import axiosInstance from '../axiosInstance';
+import axiosInstance from './axiosInstance';
 
 // [POST] Create the shorten url.
 export const postShortenUrl = async ({
@@ -13,6 +13,5 @@ export const postShortenUrl = async ({
     expireDate,
     alias,
   });
-
   return response.data;
 };
