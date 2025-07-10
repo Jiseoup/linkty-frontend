@@ -1,4 +1,5 @@
 import { styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 export const StyledFooter = styled('footer')({
   width: '100%',
@@ -7,7 +8,10 @@ export const StyledFooter = styled('footer')({
   alignItems: 'center',
   padding: '20px 0',
   background: 'transparent',
+});
+
+export const FooterText = styled(Typography)({
+  fontSize: 20,
   color: '#ffffff',
-  fontSize: '20px',
   opacity: 0.8,
 });

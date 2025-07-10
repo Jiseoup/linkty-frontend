@@ -1,4 +1,4 @@
-import { StyledFooter } from './styled';
+import { StyledFooter, FooterText } from './styled';
 
 function Footer() {
   const startYear = 2025;
@@ -13,7 +13,11 @@ function Footer() {
   }
 
   return (
-    <StyledFooter>© {footerYear} Linkty. All rights reserved.</StyledFooter>
+    <StyledFooter>
+      <FooterText variant="body1">
+        © {footerYear} Linkty. All rights reserved.
+      </FooterText>
+    </StyledFooter>
   );
 }
 

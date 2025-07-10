@@ -9,7 +9,7 @@ function Title() {
       <Image src="/title_logo.png" alt="Linkty Logo" />
 
       {/* Title Description. */}
-      <Description>
+      <Description variant="h6">
         Linkty는 무료로 이용할 수 있는 URL 단축 서비스입니다.
       </Description>
     </>
