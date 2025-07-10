@@ -62,7 +62,11 @@ function Main() {
               originalUrl={originalUrl}
               setOriginalUrl={setOriginalUrl}
             />
-            {/* TODO: url은 http:// 또는 https://를 반드시 포함해야 합니다. helperText? */}
+            {/* 
+            TODO: url은 http:// 또는 https://를 반드시 포함해야 합니다.
+            helperText?
+            또는 검증하여 경고 출력?
+             */}
 
             {/* Advanced Settings Component. */}
             <AdvancedSettings
