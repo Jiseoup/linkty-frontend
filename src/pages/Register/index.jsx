@@ -112,6 +112,10 @@ function Register() {
               variant="contained"
               color="secondary"
               fullWidth
+              sx={{
+                height: '44px',
+                fontSize: '16px',
+              }}
             />
           </FormBox>
         </Card>
