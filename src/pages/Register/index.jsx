@@ -6,6 +6,7 @@ import Card from '../../components/Common/Card';
 import Footer from '../../components/Common/Footer';
 import FormBox from '../../components/Common/FormBox';
 import Header from '../../components/Common/Header';
+import Captcha from '../../components/Register/Captcha';
 import EmailForm from '../../components/Register/EmailForm';
 import PasswordForm from '../../components/Register/PasswordForm';
 import { useAlertContext } from '../../contexts/AlertContext';
@@ -24,6 +25,7 @@ function Register() {
   const [isCodeConfirmed, setIsCodeConfirmed] = useState(false);
   const [password, setPassword] = useState(null);
   const [passwordConfirm, setPasswordConfirm] = useState(null);
+  const [captchaValue, setCaptchaValue] = useState(null);
 
   // All register fields onChange Handler.
   const onEmailChange = (e) => setEmail(e.target.value);
@@ -90,10 +92,20 @@ function Register() {
       return;
     }
 
+    // Check if captcha verification has been completed.
+    if (!captchaValue) {
+      showError(
+        '로봇이 아님을 확인해 주세요.',
+        '회원가입을 완료하려면 reCAPTCHA 인증을 진행해 주세요.'
+      );
+      return;
+    }
+
     try {
       await postRegister({
         email: email,
         password: password,
+        captchaToken: captchaValue,
       });
       showSuccess(
         '회원가입을 진심으로 환영합니다!',
@@ -119,6 +131,7 @@ function Register() {
           <FormBox onSubmit={onRegisterButtonClick}>
             <h2 style={{ marginBottom: '36px' }}>회원가입</h2>
 
+            {/* Email Form Component. */}
             <EmailForm
               email={email}
               code={code}
@@ -130,6 +143,7 @@ function Register() {
               onConfirmButtonClick={onConfirmButtonClick}
             />
 
+            {/* Password Form Component. */}
             <PasswordForm
               password={password}
               passwordConfirm={passwordConfirm}
@@ -137,6 +151,10 @@ function Register() {
               onPasswordConfirmChange={onPasswordConfirmChange}
             />
 
+            {/* Captcha Component. */}
+            <Captcha setCaptchaValue={setCaptchaValue} />
+
+            {/* Register Button Component. */}
             <Button
               text="회원가입"
               type="submit"
