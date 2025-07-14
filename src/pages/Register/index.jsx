@@ -10,6 +10,7 @@ import Captcha from '../../components/Register/Captcha';
 import EmailForm from '../../components/Register/EmailForm';
 import PasswordForm from '../../components/Register/PasswordForm';
 import { useAlertContext } from '../../contexts/AlertContext';
+import { parseErrorMessage } from '../../exceptions/errorParser';
 import {
   postVerification,
   postVerificationConfirm,
@@ -44,11 +45,7 @@ function Register() {
           '\n메일이 오지 않으면 스팸함을 확인하거나, 재발송을 시도해 주세요.'
       );
     } catch (error) {
-      // TODO: Should add Error Handling.
-      showError(
-        '인증번호 발송에 실패했습니다.',
-        error.response?.data?.message || error.message
-      );
+      showError('인증번호 발송에 실패했습니다.', parseErrorMessage(error));
     }
   };
 
@@ -62,11 +59,7 @@ function Register() {
         '회원가입을 이어서 진행해 주세요.'
       );
     } catch (error) {
-      // TODO: Should add Error Handling. (인증번호를 다시 확인해주세요?)
-      showError(
-        '이메일 인증에 실패했습니다.',
-        error.response?.data?.message || error.message
-      );
+      showError('이메일 인증에 실패했습니다.', parseErrorMessage(error));
     }
   };
 
@@ -113,11 +106,7 @@ function Register() {
       );
       // TODO: Should add redirect to main or login page.
     } catch (error) {
-      // TODO: Should add Error Handling.
-      showError(
-        '회원가입에 실패했습니다.',
-        error.response?.data?.message || error.message
-      );
+      showError('회원가입에 실패했습니다.', parseErrorMessage(error));
     }
   };
 

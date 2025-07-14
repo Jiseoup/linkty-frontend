@@ -7,6 +7,7 @@ export const ERROR_MESSAGES = {
 
   // Common Error Codes.
   // INVALID_TOKEN: 'INVALID_TOKEN',
+  EMAIL_CONFLICTED: '이미 사용 중인 이메일입니다.',
 
   // Url Service Error Codes.
   // URL_NOT_FOUND: 'URL_NOT_FOUND',
@@ -15,7 +16,6 @@ export const ERROR_MESSAGES = {
 
   // User Service Error Codes.
   // USER_NOT_FOUND: 'USER_NOT_FOUND',
-  // EMAIL_CONFLICTED: '이미 사용 중인 이메일입니다.',
   // INVALID_EMAIL_OR_PASSWORD: 'INVALID_EMAIL_OR_PASSWORD',
   // INVALID_PASSWORD: 'INVALID_PASSWORD',
 
