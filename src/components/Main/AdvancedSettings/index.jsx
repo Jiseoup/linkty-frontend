@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Collapse } from '@mui/material';
+import { Collapse, FormHelperText } from '@mui/material';
 import dayjs from 'dayjs';
 
 import DateTimePicker from '../../Common/DateTimePicker';
@@ -17,6 +17,8 @@ function AdvancedSettings({
   setExpireDate,
   setAlias,
 }) {
+  const MAX_ALIAS_LENGTH = 20;
+
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   return (
@@ -47,15 +49,19 @@ function AdvancedSettings({
         </RowBox>
 
         {/* URL Alias TextField. */}
-        <RowBox sx={{ mb: 0 }}>
+        <RowBox sx={{ mb: 0, flexDirection: 'column' }}>
           <TextField
             type="text"
             label="URL 별칭"
             placeholder="URL 별칭을 입력해주세요."
             value={alias}
             onChange={(e) => setAlias(e.target.value)}
+            inputProps={{ maxLength: MAX_ALIAS_LENGTH }}
           />
         </RowBox>
+        <FormHelperText sx={{ ml: 1.2 }}>
+          {`${(alias || '').trim().length} / ${MAX_ALIAS_LENGTH}자`}
+        </FormHelperText>
       </Collapse>
     </>
   );
