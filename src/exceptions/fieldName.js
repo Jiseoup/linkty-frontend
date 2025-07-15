@@ -3,16 +3,12 @@ export const fieldName = (field) => {
     email: '이메일',
     password: '비밀번호',
     code: '인증번호',
-
-    // Not Null 값들
-    // refreshToken: '',
-    // captchaToken: '',
-    // originalUrl: '',
-
-    // Nullable 값들
-    // alias: '',
-    // activeDate: '',
-    // expireDate: '',
+    originalUrl: 'URL',
+    alias: 'URL 별칭',
+    activeDate: 'URL 활성일',
+    expireDate: 'URL 만료일',
+    refreshToken: 'Refresh Token',
+    captchaToken: 'Captcha Token',
   };
 
   return map[field] || field;
