@@ -35,5 +35,4 @@ export const ERROR_MESSAGES = {
   INVALID_FORMAT: (field) => `${fieldName(field)} 형식이 올바르지 않습니다.`,
   INVALID_LENGTH: (field) => `${fieldName(field)}의 길이가 올바르지 않습니다.`,
   LENGTH_OVERFLOW: (field) => `${fieldName(field)}의 길이가 너무 깁니다.`,
-  LENGTH_UNDERFLOW: (field) => `${fieldName(field)}의 길이가 너무 짧습니다.`,
 };
