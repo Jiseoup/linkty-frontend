@@ -39,7 +39,6 @@ function Main() {
       });
       setShortenUrl(data.shortenUrl);
     } catch (error) {
-      // TODO: Should add Error Handling. (올바른 URL을 입력해주세요?)
       showError('URL 단축에 실패했습니다.', parseErrorMessage(error));
     }
   };
@@ -60,11 +59,6 @@ function Main() {
               originalUrl={originalUrl}
               setOriginalUrl={setOriginalUrl}
             />
-            {/* 
-            TODO: url은 http:// 또는 https://를 반드시 포함해야 합니다.
-            helperText?
-            또는 검증하여 경고 출력?
-             */}
 
             {/* Advanced Settings Component. */}
             <AdvancedSettings

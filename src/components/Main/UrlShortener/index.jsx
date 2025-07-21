@@ -11,11 +11,10 @@ function UrlShortener({ originalUrl, setOriginalUrl }) {
     <RowBox sx={{ mb: 1 }}>
       {/* URL Input TextField. */}
       <TextField
-        type="url"
+        type="text"
         placeholder="단축할 URL을 입력해주세요."
         value={originalUrl}
         onChange={(e) => setOriginalUrl(e.target.value)}
-        required
       />
 
       {/* URL Shorten Button. */}
