@@ -1,15 +1,20 @@
 import React from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { LogoWrapper } from './styled';
 
 function Logo() {
+  const location = useLocation();
   const navigate = useNavigate();
 
   // Logo image click handler.
   const onLogoClick = () => {
-    navigate('/');
+    if (location.pathname === '/') {
+      window.location.reload();
+    } else {
+      navigate('/');
+    }
   };
 
   return (
