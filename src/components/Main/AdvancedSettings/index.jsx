@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 
 import DateTimePicker from '../../Common/DateTimePicker';
 import FoldButton from '../../Common/FoldButton';
+import LabelTooltip from '../../Common/LabelTooltip';
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
 
@@ -36,13 +37,37 @@ function AdvancedSettings({
       <Collapse in={showAdvanced} timeout="auto" unmountOnExit={true}>
         <RowBox>
           <DateTimePicker
-            label="URL 활성일"
+            label={
+              <LabelTooltip
+                label="URL 활성일"
+                tooltip={
+                  <>
+                    설정한 시점 이전에는 단축 URL이 비활성화됩니다.
+                    <br />
+                    시점은 단축 URL을 생성한 사용자의 시스템 시간을 기준으로
+                    적용됩니다.
+                  </>
+                }
+              />
+            }
             value={activeDate ? dayjs(activeDate) : null}
             onChange={setActiveDate}
           />
 
           <DateTimePicker
-            label="URL 만료일"
+            label={
+              <LabelTooltip
+                label="URL 만료일"
+                tooltip={
+                  <>
+                    설정한 시점 이후에는 단축 URL이 비활성화됩니다.
+                    <br />
+                    시점은 단축 URL을 생성한 사용자의 시스템 시간을 기준으로
+                    적용됩니다.
+                  </>
+                }
+              />
+            }
             value={expireDate ? dayjs(expireDate) : null}
             onChange={setExpireDate}
           />
