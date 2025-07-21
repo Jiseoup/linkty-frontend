@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Collapse, FormHelperText } from '@mui/material';
+import { Collapse } from '@mui/material';
 import dayjs from 'dayjs';
 
 import DateTimePicker from '../../Common/DateTimePicker';
@@ -8,6 +8,8 @@ import FoldButton from '../../Common/FoldButton';
 import LabelTooltip from '../../Common/LabelTooltip';
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
+
+import { AliasHelperText } from './styled';
 
 // Component for Advanced Settings operations.
 function AdvancedSettings({
@@ -74,7 +76,7 @@ function AdvancedSettings({
         </RowBox>
 
         {/* URL Alias TextField. */}
-        <RowBox sx={{ mb: 0, flexDirection: 'column' }}>
+        <RowBox sx={{ mb: 0 }}>
           <TextField
             type="text"
             label="URL 별칭"
@@ -84,9 +86,9 @@ function AdvancedSettings({
             inputProps={{ maxLength: MAX_ALIAS_LENGTH }}
           />
         </RowBox>
-        <FormHelperText sx={{ ml: 1.2 }}>
+        <AliasHelperText>
           {`${(alias || '').trim().length} / ${MAX_ALIAS_LENGTH}자`}
-        </FormHelperText>
+        </AliasHelperText>
       </Collapse>
     </>
   );

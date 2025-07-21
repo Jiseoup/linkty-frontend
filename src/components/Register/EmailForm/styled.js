@@ -1,3 +1,4 @@
+import { FormHelperText } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import Button from '../../Common/Button';
@@ -13,3 +14,9 @@ export const VerificationButton = styled(Button)({
   flexShrink: 0,
   minWidth: '160px',
 });
+
+export const VerificationHelperText = styled(FormHelperText)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+  marginLeft: theme.spacing(1.75),
+  color: theme.palette.success.main,
+}));

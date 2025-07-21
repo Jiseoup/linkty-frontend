@@ -3,7 +3,7 @@ import React from 'react';
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
 
-import { VerificationButton } from './styled';
+import { VerificationButton, VerificationHelperText } from './styled';
 
 // Component for email input and validation.
 function EmailInput({
@@ -41,7 +41,7 @@ function EmailInput({
         />
       </RowBox>
 
-      <RowBox>
+      <RowBox sx={{ mb: 0 }}>
         {/* Email Verification Code Input TextField. */}
         <TextField
           type="text"
@@ -62,6 +62,9 @@ function EmailInput({
           disabled={!isEmailSent || isCodeConfirmed}
         />
       </RowBox>
+      <VerificationHelperText>
+        {isCodeConfirmed ? '✅ 이메일 인증이 완료되었습니다.' : null}
+      </VerificationHelperText>
     </>
   );
 }

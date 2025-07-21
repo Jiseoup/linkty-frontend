@@ -13,8 +13,11 @@ function PasswordForm({
   onPasswordChange,
   onPasswordConfirmChange,
 }) {
+  const isValidPassword =
+    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()]{8,16}$/.test(password);
   const passwordMatch = password === passwordConfirm;
-  const showPasswordMatchMessage = !!password && !!passwordConfirm;
+  const showPasswordMatchMessage =
+    password && passwordConfirm && isValidPassword;
 
   return (
     <>
@@ -28,6 +31,19 @@ function PasswordForm({
           value={password}
           onChange={onPasswordChange}
           required
+          error={password && !isValidPassword}
+          helperText={
+            !password
+              ? null
+              : isValidPassword
+                ? '✅ 비밀번호는 최소 1개 이상의 숫자와 영문자를 포함한 8~16자리여야 합니다.'
+                : '❌ 비밀번호는 최소 1개 이상의 숫자와 영문자를 포함한 8~16자리여야 합니다.'
+          }
+          FormHelperTextProps={{
+            sx: {
+              color: isValidPassword ? 'success.main' : 'error.main',
+            },
+          }}
         />
       </RowBox>
 
@@ -43,10 +59,19 @@ function PasswordForm({
           required
           error={!passwordMatch && showPasswordMatchMessage}
           helperText={
-            !passwordMatch && showPasswordMatchMessage
-              ? '비밀번호가 일치하지 않습니다.'
-              : null
+            !passwordConfirm
+              ? null
+              : showPasswordMatchMessage
+                ? passwordMatch
+                  ? '✅ 비밀번호가 일치합니다.'
+                  : '❌ 비밀번호가 일치하지 않습니다.'
+                : null
           }
+          FormHelperTextProps={{
+            sx: {
+              color: passwordMatch ? 'success.main' : 'error.main',
+            },
+          }}
           InputProps={{
             endAdornment: showPasswordMatchMessage ? (
               passwordMatch ? (
