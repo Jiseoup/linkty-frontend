@@ -39,7 +39,10 @@ function Main() {
       });
       setShortenUrl(data.shortenUrl);
     } catch (error) {
-      showError('URL 단축에 실패했습니다.', parseErrorMessage(error));
+      showError({
+        title: 'URL 단축에 실패했습니다.',
+        message: parseErrorMessage(error),
+      });
     }
   };
 

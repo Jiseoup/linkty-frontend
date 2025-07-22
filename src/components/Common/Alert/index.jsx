@@ -53,7 +53,7 @@ const getIconBgColor = (severity) => {
 // Common Alert Component.
 const Alert = () => {
   const { alertState, hideAlert } = useAlertContext();
-  const { isOpen, severity, title, message, buttonText } = alertState;
+  const { isOpen, severity, title, message, buttonText, onClose } = alertState;
 
   return (
     <StyledDialog
@@ -84,7 +84,16 @@ const Alert = () => {
 
       <StyledDialogActions>
         {/* Alert Button. */}
-        <StyledButton variant="contained" onClick={hideAlert}>
+        <StyledButton
+          variant="contained"
+          onClick={() => {
+            hideAlert();
+            // Execute onClose callback if it exists.
+            if (onClose) {
+              onClose();
+            }
+          }}
+        >
           {buttonText}
         </StyledButton>
       </StyledDialogActions>

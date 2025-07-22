@@ -10,17 +10,19 @@ export const AlertProvider = ({ children }) => {
     title: null,
     message: null,
     buttonText: '확인',
+    onClose: null,
   });
 
   // Displays an alert with the given configuration.
   const showAlert = useCallback(
-    ({ severity, title, message, buttonText = '확인' }) => {
+    ({ severity, title, message, buttonText = '확인', onClose = null }) => {
       setAlertState({
         isOpen: true,
         severity,
         title,
         message,
         buttonText,
+        onClose,
       });
     },
     []
@@ -32,14 +34,14 @@ export const AlertProvider = ({ children }) => {
   }, []);
 
   // Helper functions to display alerts with predefined severities.
-  const showInfo = (title, message, buttonText = '확인') =>
-    showAlert({ severity: 'info', title, message, buttonText });
-  const showSuccess = (title, message, buttonText = '확인') =>
-    showAlert({ severity: 'success', title, message, buttonText });
-  const showWarning = (title, message, buttonText = '확인') =>
-    showAlert({ severity: 'warning', title, message, buttonText });
-  const showError = (title, message, buttonText = '확인') =>
-    showAlert({ severity: 'error', title, message, buttonText });
+  const showInfo = ({ title, message, buttonText, onClose }) =>
+    showAlert({ severity: 'info', title, message, buttonText, onClose });
+  const showSuccess = ({ title, message, buttonText, onClose }) =>
+    showAlert({ severity: 'success', title, message, buttonText, onClose });
+  const showWarning = ({ title, message, buttonText, onClose }) =>
+    showAlert({ severity: 'warning', title, message, buttonText, onClose });
+  const showError = ({ title, message, buttonText, onClose }) =>
+    showAlert({ severity: 'error', title, message, buttonText, onClose });
 
   return (
     <AlertContext.Provider
