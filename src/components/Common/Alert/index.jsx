@@ -58,7 +58,10 @@ const Alert = () => {
   return (
     <StyledDialog
       open={isOpen}
-      onClose={hideAlert}
+      onClose={() => {
+        hideAlert();
+        if (onClose) onClose();
+      }}
       maxWidth="xs"
       fullWidth
       slotProps={{
@@ -88,10 +91,7 @@ const Alert = () => {
           variant="contained"
           onClick={() => {
             hideAlert();
-            // Execute onClose callback if it exists.
-            if (onClose) {
-              onClose();
-            }
+            if (onClose) onClose();
           }}
         >
           {buttonText}
