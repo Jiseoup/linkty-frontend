@@ -18,6 +18,11 @@ function Header() {
     navigate('/register');
   };
 
+  // Login button click handler.
+  const onLoginClick = () => {
+    navigate('/login');
+  };
+
   return (
     <HeaderWrapper component="header">
       {/* Header Logo. */}
@@ -30,6 +35,7 @@ function Header() {
           variant="outlined"
           color="primary"
           startIcon={<LoginIcon />}
+          onClick={onLoginClick}
         />
 
         {/* Register Button. */}

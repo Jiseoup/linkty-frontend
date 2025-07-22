@@ -118,7 +118,11 @@ function Register() {
       <BackgroundWrapper>
         <Card>
           <FormBox onSubmit={onRegisterButtonClick}>
-            <h2 style={{ marginBottom: '36px' }}>회원가입</h2>
+            <h2 style={{ marginBottom: '0px' }}>회원가입</h2>
+
+            <p style={{ marginBottom: '36px' }}>
+              Linkty에 오신것을 환영합니다!
+            </p>
 
             {/* Email Form Component. */}
             <EmailForm
@@ -150,10 +154,7 @@ function Register() {
               variant="contained"
               color="secondary"
               fullWidth
-              sx={{
-                height: '44px',
-                fontSize: '16px',
-              }}
+              sx={{ height: '44px', fontSize: '16px' }}
             />
           </FormBox>
         </Card>
