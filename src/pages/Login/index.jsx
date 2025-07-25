@@ -9,6 +9,7 @@ import Footer from '../../components/Common/Footer';
 import FormBox from '../../components/Common/FormBox';
 import Header from '../../components/Common/Header';
 import LoginForm from '../../components/Login/LoginForm';
+import LoginOptions from '../../components/Login/LoginOptions';
 import { useAccessTokenContext } from '../../contexts/AccessTokenContext';
 import { useAlertContext } from '../../contexts/AlertContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
@@ -62,6 +63,10 @@ function Login() {
               onEmailChange={onEmailChange}
               onPasswordChange={onPasswordChange}
             />
+
+            {/* TODO: 추후 로그인 옵션 기능 구현 필요 */}
+            {/* Login Options Component. */}
+            <LoginOptions />
 
             {/* Login Button Component. */}
             <Button

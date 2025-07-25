@@ -18,6 +18,10 @@ const theme = createTheme({
       main: '#434343',
       contrastText: '#FFFFFF',
     },
+    link: {
+      main: '#555555',
+      hover: '#333333',
+    },
   },
 });
 
