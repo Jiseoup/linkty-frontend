@@ -8,16 +8,36 @@ const instance = axios.create({
   headers: { 'Content-Type': 'application/json' },
 });
 
+// Global variable to handle the multiple requests.
+let pending = 0;
+
+// Start loading function.
+function startLoading() {
+  const { setLoading } = getLoadingContext();
+  if (!setLoading) return;
+  if (pending === 0) setLoading(true);
+  pending += 1;
+}
+
+// Stop loading function.
+function stopLoading() {
+  const { setLoading } = getLoadingContext();
+  if (!setLoading) return;
+  pending -= 1;
+  if (pending <= 0) {
+    pending = 0;
+    setLoading(false);
+  }
+}
+
 // Set up API request interceptors.
 instance.interceptors.request.use(
   (config) => {
-    const { setLoading } = getLoadingContext();
-    setLoading?.(true);
+    startLoading();
     return config;
   },
   (error) => {
-    const { setLoading } = getLoadingContext();
-    setLoading?.(false);
+    stopLoading();
     return Promise.reject(error);
   }
 );
@@ -25,13 +45,11 @@ instance.interceptors.request.use(
 // Set up API response interceptors.
 instance.interceptors.response.use(
   (response) => {
-    const { setLoading } = getLoadingContext();
-    setLoading?.(false);
+    stopLoading();
     return response;
   },
   (error) => {
-    const { setLoading } = getLoadingContext();
-    setLoading?.(false);
+    stopLoading();
     return Promise.reject(error);
   }
 );
