@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 
-import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
 import Card from '../../components/Common/Card';
-import Footer from '../../components/Common/Footer';
 import FormBox from '../../components/Common/FormBox';
-import Header from '../../components/Common/Header';
 import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
 import Title from '../../components/Main/Title';
@@ -48,39 +45,31 @@ function Main() {
 
   return (
     <>
-      {/* Main Page Header. */}
-      <Header />
+      <Card>
+        {/* Main Page Title. */}
+        <Title />
 
-      <BackgroundWrapper>
-        <Card>
-          {/* Main Page Title. */}
-          <Title />
+        <FormBox onSubmit={onShortenButtonClick}>
+          {/* URL Shortener Component. */}
+          <UrlShortener
+            originalUrl={originalUrl}
+            setOriginalUrl={setOriginalUrl}
+          />
 
-          <FormBox onSubmit={onShortenButtonClick}>
-            {/* URL Shortener Component. */}
-            <UrlShortener
-              originalUrl={originalUrl}
-              setOriginalUrl={setOriginalUrl}
-            />
+          {/* Advanced Settings Component. */}
+          <AdvancedSettings
+            activeDate={activeDate}
+            expireDate={expireDate}
+            alias={alias}
+            setActiveDate={setActiveDate}
+            setExpireDate={setExpireDate}
+            setAlias={setAlias}
+          />
+        </FormBox>
 
-            {/* Advanced Settings Component. */}
-            <AdvancedSettings
-              activeDate={activeDate}
-              expireDate={expireDate}
-              alias={alias}
-              setActiveDate={setActiveDate}
-              setExpireDate={setExpireDate}
-              setAlias={setAlias}
-            />
-          </FormBox>
-
-          {/* Shorten URL Box Component. */}
-          <ShortenUrlBox shortenUrl={shortenUrl} />
-        </Card>
-
-        {/* Main Page Footer. */}
-        <Footer />
-      </BackgroundWrapper>
+        {/* Shorten URL Box Component. */}
+        <ShortenUrlBox shortenUrl={shortenUrl} />
+      </Card>
     </>
   );
 }

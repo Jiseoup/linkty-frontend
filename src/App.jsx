@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Alert from './components/Common/Alert';
 import AxiosInterceptor from './components/Common/AxiosInterceptor';
+import Layout from './components/Common/Layout';
 import Loading from './components/Common/Loading';
 import { AccessTokenProvider } from './contexts/AccessTokenContext';
 import { AlertProvider } from './contexts/AlertContext';
@@ -23,9 +24,11 @@ function App() {
               <AxiosInterceptor />
               <Alert />
               <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/login" element={<Login />} />
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Main />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/login" element={<Login />} />
+                </Route>
               </Routes>
             </LoadingProvider>
           </AccessTokenProvider>

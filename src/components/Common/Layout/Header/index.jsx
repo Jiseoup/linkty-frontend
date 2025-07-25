@@ -4,7 +4,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../Button';
+import Button from '../../Button';
 
 import Logo from './Logo';
 import { HeaderWrapper, ButtonWrapper } from './styled';

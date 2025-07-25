@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
 import Button from '../../components/Common/Button';
 import Card from '../../components/Common/Card';
-import Footer from '../../components/Common/Footer';
 import FormBox from '../../components/Common/FormBox';
-import Header from '../../components/Common/Header';
 import LoginForm from '../../components/Login/LoginForm';
 import LoginOptions from '../../components/Login/LoginOptions';
 import { useAccessTokenContext } from '../../contexts/AccessTokenContext';
@@ -48,41 +45,33 @@ function Login() {
 
   return (
     <>
-      {/* Login Page Header. */}
-      <Header />
+      <Card>
+        <FormBox onSubmit={onLoginButtonClick}>
+          <h2 style={{ marginBottom: '36px' }}>로그인</h2>
 
-      <BackgroundWrapper>
-        <Card>
-          <FormBox onSubmit={onLoginButtonClick}>
-            <h2 style={{ marginBottom: '36px' }}>로그인</h2>
+          {/* Login Form Component. */}
+          <LoginForm
+            email={email}
+            password={password}
+            onEmailChange={onEmailChange}
+            onPasswordChange={onPasswordChange}
+          />
 
-            {/* Login Form Component. */}
-            <LoginForm
-              email={email}
-              password={password}
-              onEmailChange={onEmailChange}
-              onPasswordChange={onPasswordChange}
-            />
+          {/* TODO: 추후 로그인 옵션 기능 구현 필요 */}
+          {/* Login Options Component. */}
+          <LoginOptions />
 
-            {/* TODO: 추후 로그인 옵션 기능 구현 필요 */}
-            {/* Login Options Component. */}
-            <LoginOptions />
-
-            {/* Login Button Component. */}
-            <Button
-              text="로그인"
-              type="submit"
-              variant="contained"
-              color="secondary"
-              fullWidth
-              sx={{ height: '44px', fontSize: '16px' }}
-            />
-          </FormBox>
-        </Card>
-
-        {/* Login Page Footer. */}
-        <Footer />
-      </BackgroundWrapper>
+          {/* Login Button Component. */}
+          <Button
+            text="로그인"
+            type="submit"
+            variant="contained"
+            color="secondary"
+            fullWidth
+            sx={{ height: '44px', fontSize: '16px' }}
+          />
+        </FormBox>
+      </Card>
     </>
   );
 }

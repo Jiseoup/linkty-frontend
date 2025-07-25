@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
 import Button from '../../components/Common/Button';
 import Card from '../../components/Common/Card';
-import Footer from '../../components/Common/Footer';
 import FormBox from '../../components/Common/FormBox';
-import Header from '../../components/Common/Header';
 import Captcha from '../../components/Register/Captcha';
 import EmailForm from '../../components/Register/EmailForm';
 import PasswordForm from '../../components/Register/PasswordForm';
@@ -126,56 +123,46 @@ function Register() {
 
   return (
     <>
-      {/* Register Page Header. */}
-      <Header />
+      <Card>
+        <FormBox onSubmit={onRegisterButtonClick}>
+          <h2 style={{ marginBottom: '0px' }}>회원가입</h2>
 
-      <BackgroundWrapper>
-        <Card>
-          <FormBox onSubmit={onRegisterButtonClick}>
-            <h2 style={{ marginBottom: '0px' }}>회원가입</h2>
+          <p style={{ marginBottom: '36px' }}>Linkty에 오신것을 환영합니다!</p>
 
-            <p style={{ marginBottom: '36px' }}>
-              Linkty에 오신것을 환영합니다!
-            </p>
+          {/* Email Form Component. */}
+          <EmailForm
+            email={email}
+            code={code}
+            onEmailChange={onEmailChange}
+            onCodeChange={onCodeChange}
+            isEmailSent={isEmailSent}
+            isCodeConfirmed={isCodeConfirmed}
+            onVerifyButtonClick={onVerifyButtonClick}
+            onConfirmButtonClick={onConfirmButtonClick}
+          />
 
-            {/* Email Form Component. */}
-            <EmailForm
-              email={email}
-              code={code}
-              onEmailChange={onEmailChange}
-              onCodeChange={onCodeChange}
-              isEmailSent={isEmailSent}
-              isCodeConfirmed={isCodeConfirmed}
-              onVerifyButtonClick={onVerifyButtonClick}
-              onConfirmButtonClick={onConfirmButtonClick}
-            />
+          {/* Password Form Component. */}
+          <PasswordForm
+            password={password}
+            passwordConfirm={passwordConfirm}
+            onPasswordChange={onPasswordChange}
+            onPasswordConfirmChange={onPasswordConfirmChange}
+          />
 
-            {/* Password Form Component. */}
-            <PasswordForm
-              password={password}
-              passwordConfirm={passwordConfirm}
-              onPasswordChange={onPasswordChange}
-              onPasswordConfirmChange={onPasswordConfirmChange}
-            />
+          {/* Captcha Component. */}
+          <Captcha setCaptchaValue={setCaptchaValue} />
 
-            {/* Captcha Component. */}
-            <Captcha setCaptchaValue={setCaptchaValue} />
-
-            {/* Register Button Component. */}
-            <Button
-              text="회원가입"
-              type="submit"
-              variant="contained"
-              color="secondary"
-              fullWidth
-              sx={{ height: '44px', fontSize: '16px' }}
-            />
-          </FormBox>
-        </Card>
-
-        {/* Register Page Footer. */}
-        <Footer />
-      </BackgroundWrapper>
+          {/* Register Button Component. */}
+          <Button
+            text="회원가입"
+            type="submit"
+            variant="contained"
+            color="secondary"
+            fullWidth
+            sx={{ height: '44px', fontSize: '16px' }}
+          />
+        </FormBox>
+      </Card>
     </>
   );
 }
