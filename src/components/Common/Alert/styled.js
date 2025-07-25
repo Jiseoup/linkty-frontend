@@ -45,17 +45,19 @@ export const IconCircle = styled(Box)(({ bgcolor }) => ({
   marginBottom: 8,
 }));
 
-export const TitleText = styled(Typography)({
+export const TitleText = styled(Typography)(({ theme }) => ({
+  fontSize: '20px',
   fontWeight: 700,
-  marginBottom: 8,
+  marginBottom: theme.spacing(1),
   whiteSpace: 'pre-line',
-});
+}));
 
-export const MessageText = styled(Typography)({
+export const MessageText = styled(Typography)(({ theme }) => ({
+  fontSize: '14px',
   color: '#444444',
-  marginBottom: 8,
+  marginBottom: theme.spacing(1),
   whiteSpace: 'pre-line',
-});
+}));
 
 export const StyledButton = styled(Button)({
   minWidth: 100,

@@ -14,9 +14,7 @@ function Footer() {
 
   return (
     <StyledFooter>
-      <FooterText variant="body1">
-        © {footerYear} Linkty. All rights reserved.
-      </FooterText>
+      <FooterText>© {footerYear} Linkty. All rights reserved.</FooterText>
     </StyledFooter>
   );
 }

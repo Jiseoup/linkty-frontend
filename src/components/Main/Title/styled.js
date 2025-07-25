@@ -6,10 +6,10 @@ export const Image = styled('img')({
   marginBottom: 20,
 });
 
-export const Description = styled(Typography)({
+export const Description = styled(Typography)(({ theme }) => ({
   fontSize: 22,
   fontWeight: 500,
   color: '#888888',
-  marginBottom: 24,
+  marginBottom: theme.spacing(3),
   textAlign: 'center',
-});
+}));

@@ -79,10 +79,10 @@ const Alert = () => {
         )}
 
         {/* Alert Title. */}
-        <TitleText variant="h6">{title}</TitleText>
+        <TitleText>{title}</TitleText>
 
         {/* Alert Message. */}
-        <MessageText variant="body2">{message}</MessageText>
+        <MessageText>{message}</MessageText>
       </StyledDialogContent>
 
       <StyledDialogActions>
