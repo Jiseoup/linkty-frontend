@@ -31,13 +31,13 @@ function Main() {
       const formattedActiveDate = formatDatetime(activeDate);
       const formattedExpireDate = formatDatetime(expireDate);
 
-      const data = await postShortenUrl({
+      const response = await postShortenUrl({
         originalUrl: originalUrl,
         activeDate: formattedActiveDate || null,
         expireDate: formattedExpireDate || null,
         alias: alias || null,
       });
-      setShortenUrl(data.shortenUrl);
+      setShortenUrl(response.shortenUrl);
     } catch (error) {
       showError({
         title: 'URL 단축에 실패했습니다.',

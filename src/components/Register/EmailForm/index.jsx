@@ -6,7 +6,7 @@ import TextField from '../../Common/TextField';
 import { VerificationButton, VerificationHelperText } from './styled';
 
 // Component for email input and validation.
-function EmailInput({
+function EmailForm({
   email,
   code,
   onEmailChange,
@@ -69,4 +69,4 @@ function EmailInput({
   );
 }
 
-export default EmailInput;
+export default EmailForm;
