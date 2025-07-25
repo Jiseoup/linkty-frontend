@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
+import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
+import Button from '../../components/Common/Button';
+import Card from '../../components/Common/Card';
+import Footer from '../../components/Common/Footer';
+import FormBox from '../../components/Common/FormBox';
+import Header from '../../components/Common/Header';
+import LoginForm from '../../components/Login/LoginForm';
+import { useAccessTokenContext } from '../../contexts/AccessTokenContext';
+import { useAlertContext } from '../../contexts/AlertContext';
+import { parseErrorMessage } from '../../exceptions/errorParser';
+import { postLogin } from '../../services/user';
+
+function Login() {
+  const navigate = useNavigate();
+
+  const { showError } = useAlertContext();
+  const { setAccessToken } = useAccessTokenContext();
+
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  const onEmailChange = (e) => setEmail(e.target.value);
+  const onPasswordChange = (e) => setPassword(e.target.value);
+
+  // Login Button Click Handler.
+  const onLoginButtonClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await postLogin({ email, password });
+
+      const accessToken = response.accessToken;
+      setAccessToken(accessToken);
+      // TODO: 로그인 성공 후 메인 페이지 등으로 이동 처리
+      navigate('/');
+    } catch (error) {
+      showError({
+        title: '로그인에 실패했습니다.',
+        message: parseErrorMessage(error),
+      });
+    }
+  };
+
+  return (
+    <>
+      {/* Login Page Header. */}
+      <Header />
+
+      <BackgroundWrapper>
+        <Card>
+          <FormBox onSubmit={onLoginButtonClick}>
+            <h2 style={{ marginBottom: '36px' }}>로그인</h2>
+
+            {/* Login Form Component. */}
+            <LoginForm
+              email={email}
+              password={password}
+              onEmailChange={onEmailChange}
+              onPasswordChange={onPasswordChange}
+            />
+
+            {/* Login Button Component. */}
+            <Button
+              text="로그인"
+              type="submit"
+              variant="contained"
+              color="secondary"
+              fullWidth
+              sx={{ height: '44px', fontSize: '16px' }}
+            />
+          </FormBox>
+        </Card>
+
+        {/* Login Page Footer. */}
+        <Footer />
+      </BackgroundWrapper>
+    </>
+  );
+}
+
+export default Login;
