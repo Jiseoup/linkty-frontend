@@ -110,7 +110,7 @@ function Register() {
       });
       showSuccess({
         title: '회원가입을 진심으로 환영합니다!',
-        message: '로그인 후 Linkty의 모든 서비스를 자유롭게 이용해보세요.',
+        message: '로그인하여 Linkty의 모든 서비스를 자유롭게 이용해보세요.',
         onClose: () => navigate('/'),
       });
     } catch (error) {

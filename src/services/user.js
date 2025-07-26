@@ -20,3 +20,9 @@ export const postLogin = async ({ email, password }) => {
   });
   return response.data;
 };
+
+// [POST] Refresh Access Token.
+export const postRefreshToken = async () => {
+  const response = await axiosInstance.post(`${BASE_URL}/refresh-token`);
+  return response.data;
+};

@@ -30,10 +30,7 @@ function Login() {
 
     try {
       const response = await postLogin({ email, password });
-
-      const accessToken = response.accessToken;
-      setAccessToken(accessToken);
-      // TODO: 로그인 성공 후 메인 페이지 등으로 이동 처리
+      setAccessToken(response.accessToken);
       navigate('/');
     } catch (error) {
       showError({
