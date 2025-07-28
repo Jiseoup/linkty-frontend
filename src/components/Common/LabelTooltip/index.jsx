@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Container, HelpIcon, StyledTooltip } from './styled';
 
 // Label Tooltip Component.

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
 

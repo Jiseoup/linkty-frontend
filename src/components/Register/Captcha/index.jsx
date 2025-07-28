@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { StyledBox } from './styled';

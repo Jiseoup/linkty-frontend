@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Image, Description } from './styled';
 
 function Title() {

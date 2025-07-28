@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { StyledTextField } from './styled';
 
 // Basic TextField Component.
