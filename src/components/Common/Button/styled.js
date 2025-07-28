@@ -6,4 +6,8 @@ export const StyledButton = styled(Button)({
   fontWeight: 500,
   minWidth: 100,
   height: 36,
+  boxShadow: 'none',
+  '&:hover': {
+    boxShadow: 'none',
+  },
 });

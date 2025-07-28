@@ -1,5 +1,6 @@
 import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PersonIcon from '@mui/icons-material/Person';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useNavigate } from 'react-router-dom';
 
@@ -64,6 +65,15 @@ function Header() {
               color="primary"
               startIcon={<LogoutIcon />}
               onClick={onLogoutClick}
+            />
+
+            {/* My Page Button. */}
+            <Button
+              text="마이페이지"
+              variant="contained"
+              color="primary"
+              startIcon={<PersonIcon />}
+              // TODO: Mypage onClick 함수 구현 필요
             />
           </>
         ) : (

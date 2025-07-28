@@ -8,7 +8,6 @@ export const VerificationButton = styled(Button)({
   fontWeight: '500',
   height: '56px',
   borderRadius: '8px',
-  boxShadow: 'none',
   padding: '12px 24px',
   whiteSpace: 'nowrap',
   flexShrink: 0,
