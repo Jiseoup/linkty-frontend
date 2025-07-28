@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAccessTokenContext } from '../../../../contexts/AccessTokenContext';
 import { useAlertContext } from '../../../../contexts/AlertContext';
+import { useToastContext } from '../../../../contexts/ToastContext';
 import { postLogout } from '../../../../services/user';
 import Button from '../../Button';
 
@@ -16,6 +17,7 @@ function Header() {
   const navigate = useNavigate();
 
   const { alertError } = useAlertContext();
+  const { toastSuccess } = useToastContext();
   const { accessToken, clearAccessToken } = useAccessTokenContext();
 
   // Register button click handler.
@@ -32,6 +34,7 @@ function Header() {
   const onLogoutClick = async () => {
     try {
       await postLogout();
+      toastSuccess({ message: '성공적으로 로그아웃되었습니다.' });
     } catch (error) {
       alertError({
         title: '로그아웃에 실패했습니다.',

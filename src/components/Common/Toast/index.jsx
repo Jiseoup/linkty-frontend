@@ -3,32 +3,35 @@ import { useTheme } from '@mui/material/styles';
 
 import { useToastContext } from '../../../contexts/ToastContext';
 
+// Get toast message background color based on severity.
 const getBgColor = (severity, theme) => {
   return theme.palette.alert?.[severity]?.main ?? theme.palette.alert.default;
 };
 
+// Common Toast Component.
 const Toast = () => {
   const theme = useTheme();
 
   const { toastState, hideToast } = useToastContext();
+  const { isOpen, severity, message } = toastState;
 
   return (
     <Snackbar
-      open={toastState.isOpen}
-      autoHideDuration={3000}
+      open={isOpen}
       onClose={hideToast}
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      autoHideDuration={2500}
+      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
     >
       <Alert
-        severity={toastState.severity}
+        severity={severity}
         onClose={hideToast}
         variant="filled"
         sx={{
-          backgroundColor: getBgColor(toastState.severity, theme),
           width: '100%',
+          backgroundColor: getBgColor(severity, theme),
         }}
       >
-        {toastState.message}
+        {message}
       </Alert>
     </Snackbar>
   );

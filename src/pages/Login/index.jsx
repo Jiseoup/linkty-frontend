@@ -9,6 +9,7 @@ import LoginForm from '../../components/Login/LoginForm';
 import LoginOptions from '../../components/Login/LoginOptions';
 import { useAccessTokenContext } from '../../contexts/AccessTokenContext';
 import { useAlertContext } from '../../contexts/AlertContext';
+import { useToastContext } from '../../contexts/ToastContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
 import { postLogin } from '../../services/user';
 
@@ -16,6 +17,7 @@ function Login() {
   const navigate = useNavigate();
 
   const { alertError } = useAlertContext();
+  const { toastSuccess } = useToastContext();
   const { setAccessToken } = useAccessTokenContext();
 
   const [email, setEmail] = useState(null);
@@ -32,6 +34,7 @@ function Login() {
       const response = await postLogin({ email, password });
       setAccessToken(response.accessToken);
       localStorage.setItem('loggedIn', 'true'); // Set loggedIn status in the local storage.
+      toastSuccess({ message: '환영합니다! 성공적으로 로그인되었습니다.' });
       navigate('/');
     } catch (error) {
       alertError({
