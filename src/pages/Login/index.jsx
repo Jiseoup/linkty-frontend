@@ -31,6 +31,7 @@ function Login() {
     try {
       const response = await postLogin({ email, password });
       setAccessToken(response.accessToken);
+      localStorage.setItem('loggedIn', 'true'); // Set loggedIn status in the local storage.
       navigate('/');
     } catch (error) {
       showError({

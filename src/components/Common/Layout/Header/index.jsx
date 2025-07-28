@@ -1,9 +1,13 @@
 import React from 'react';
 
 import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useNavigate } from 'react-router-dom';
 
+import { useAccessTokenContext } from '../../../../contexts/AccessTokenContext';
+import { useAlertContext } from '../../../../contexts/AlertContext';
+import { postLogout } from '../../../../services/user';
 import Button from '../../Button';
 
 import Logo from './Logo';
@@ -12,6 +16,9 @@ import { HeaderWrapper, ButtonWrapper } from './styled';
 // Common Header Component.
 function Header() {
   const navigate = useNavigate();
+
+  const { showError } = useAlertContext();
+  const { accessToken, clearAccessToken } = useAccessTokenContext();
 
   // Register button click handler.
   const onRegisterClick = () => {
@@ -23,29 +30,63 @@ function Header() {
     navigate('/login');
   };
 
+  // Logout button click handler.
+  const onLogoutClick = async () => {
+    try {
+      await postLogout();
+    } catch (error) {
+      showError({
+        title: '로그아웃에 실패했습니다.',
+        message:
+          '서버 세션이 완전히 종료되지 않았을 수 있습니다.' +
+          '\n보안을 위해 다시 로그인한 후 로그아웃을 시도해 주세요.',
+      });
+    } finally {
+      clearAccessToken();
+      navigate('/');
+    }
+  };
+
   return (
     <HeaderWrapper component="header">
       {/* Header Logo. */}
       <Logo />
 
       <ButtonWrapper>
-        {/* Login Button. */}
-        <Button
-          text="로그인"
-          variant="outlined"
-          color="primary"
-          startIcon={<LoginIcon />}
-          onClick={onLoginClick}
-        />
+        {accessToken ? (
+          // Logged in state.
+          <>
+            {/* Logout Button. */}
+            <Button
+              text="로그아웃"
+              variant="outlined"
+              color="primary"
+              startIcon={<LogoutIcon />}
+              onClick={onLogoutClick}
+            />
+          </>
+        ) : (
+          // Logged out state.
+          <>
+            {/* Login Button. */}
+            <Button
+              text="로그인"
+              variant="outlined"
+              color="primary"
+              startIcon={<LoginIcon />}
+              onClick={onLoginClick}
+            />
 
-        {/* Register Button. */}
-        <Button
-          text="회원가입"
-          variant="contained"
-          color="primary"
-          startIcon={<PersonAddIcon />}
-          onClick={onRegisterClick}
-        />
+            {/* Register Button. */}
+            <Button
+              text="회원가입"
+              variant="contained"
+              color="primary"
+              startIcon={<PersonAddIcon />}
+              onClick={onRegisterClick}
+            />
+          </>
+        )}
       </ButtonWrapper>
     </HeaderWrapper>
   );

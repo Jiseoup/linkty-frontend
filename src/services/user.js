@@ -21,6 +21,12 @@ export const postLogin = async ({ email, password }) => {
   return response.data;
 };
 
+// [POST] User logout.
+export const postLogout = async () => {
+  const response = await axiosInstance.post(`${BASE_URL}/logout`);
+  return response.data;
+};
+
 // [POST] Refresh Access Token.
 export const postRefreshToken = async () => {
   const response = await axiosInstance.post(`${BASE_URL}/refresh-token`);
