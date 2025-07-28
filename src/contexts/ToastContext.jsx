@@ -13,7 +13,7 @@ export const ToastProvider = ({ children }) => {
   });
 
   // Displays a toast message with the given configuration.
-  const showToast = useCallback((severity, message) => {
+  const showToast = useCallback(({ severity, message }) => {
     setToastState({ isOpen: true, severity, message });
   }, []);
 

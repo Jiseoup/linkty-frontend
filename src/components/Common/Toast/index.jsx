@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { useToastContext } from '../../../contexts/ToastContext';
 
 const getBgColor = (severity, theme) => {
-  return theme.palette.alert?.[severity]?.main ?? null;
+  return theme.palette.alert?.[severity]?.main ?? theme.palette.alert.default;
 };
 
 const Toast = () => {

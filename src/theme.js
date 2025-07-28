@@ -31,6 +31,7 @@ const theme = createTheme({
         main: '#f44336',
         light: '#fdeaea',
       },
+      default: '#434343',
     },
     tooltip: {
       main: '#434343',
