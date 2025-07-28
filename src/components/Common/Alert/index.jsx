@@ -2,6 +2,7 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+import { useTheme } from '@mui/material/styles';
 
 import { useAlertContext } from '../../../contexts/AlertContext';
 
@@ -16,40 +17,33 @@ import {
   StyledButton,
 } from './styled';
 
-// Get alert icon based on severity.
-const getIcon = (severity) => {
+// Get alert icon and color based on severity.
+const getIcon = (severity, theme) => {
+  const color = theme.palette.alert?.[severity]?.main;
+
   switch (severity) {
     case 'info':
-      return <InfoOutlinedIcon sx={{ fontSize: 54, color: '#2196f3' }} />;
+      return <InfoOutlinedIcon sx={{ fontSize: 54, color }} />;
     case 'success':
-      return <CheckCircleOutlineIcon sx={{ fontSize: 54, color: '#4caf50' }} />;
+      return <CheckCircleOutlineIcon sx={{ fontSize: 54, color }} />;
     case 'warning':
-      return <WarningAmberIcon sx={{ fontSize: 54, color: '#ff9800' }} />;
+      return <WarningAmberIcon sx={{ fontSize: 54, color }} />;
     case 'error':
-      return <ErrorOutlineIcon sx={{ fontSize: 54, color: '#f44336' }} />;
+      return <ErrorOutlineIcon sx={{ fontSize: 54, color }} />;
     default:
       return null;
   }
 };
 
 // Get alert icon background color based on severity.
-const getIconBgColor = (severity) => {
-  switch (severity) {
-    case 'info':
-      return '#eaf1fb';
-    case 'success':
-      return '#eaf7ea';
-    case 'warning':
-      return '#fff4e5';
-    case 'error':
-      return '#fdeaea';
-    default:
-      return null;
-  }
+const getIconBgColor = (severity, theme) => {
+  return theme.palette.alert?.[severity]?.light ?? null;
 };
 
 // Common Alert Component.
 const Alert = () => {
+  const theme = useTheme();
+
   const { alertState, hideAlert } = useAlertContext();
   const { isOpen, severity, title, message, buttonText, onClose } = alertState;
 
@@ -70,8 +64,8 @@ const Alert = () => {
         {/* Alert Icon. */}
         {severity && (
           <CenterBox>
-            <IconCircle bgcolor={getIconBgColor(severity)}>
-              {getIcon(severity)}
+            <IconCircle bgcolor={getIconBgColor(severity, theme)}>
+              {getIcon(severity, theme)}
             </IconCircle>
           </CenterBox>
         )}

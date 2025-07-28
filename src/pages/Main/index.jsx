@@ -12,7 +12,7 @@ import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
 
 function Main() {
-  const { showError } = useAlertContext();
+  const { alertError } = useAlertContext();
 
   const [shortenUrl, setShortenUrl] = useState(null);
   const [originalUrl, setOriginalUrl] = useState(null);
@@ -36,7 +36,7 @@ function Main() {
       });
       setShortenUrl(response.shortenUrl);
     } catch (error) {
-      showError({
+      alertError({
         title: 'URL 단축에 실패했습니다.',
         message: parseErrorMessage(error),
       });

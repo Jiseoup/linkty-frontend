@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 
+import Loading from '../components/Common/Loading';
+
 // Global variable to hold the setLoading function.
 let globalSetLoading = null;
 
@@ -22,6 +24,7 @@ export function LoadingProvider({ children }) {
   return (
     <LoadingContext.Provider value={{ loading, setLoading }}>
       {children}
+      <Loading />
     </LoadingContext.Provider>
   );
 }

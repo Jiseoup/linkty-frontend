@@ -15,7 +15,7 @@ import { postLogin } from '../../services/user';
 function Login() {
   const navigate = useNavigate();
 
-  const { showError } = useAlertContext();
+  const { alertError } = useAlertContext();
   const { setAccessToken } = useAccessTokenContext();
 
   const [email, setEmail] = useState(null);
@@ -34,7 +34,7 @@ function Login() {
       localStorage.setItem('loggedIn', 'true'); // Set loggedIn status in the local storage.
       navigate('/');
     } catch (error) {
-      showError({
+      alertError({
         title: '로그인에 실패했습니다.',
         message: parseErrorMessage(error),
       });

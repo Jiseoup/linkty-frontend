@@ -1,13 +1,12 @@
 import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Alert from './components/Common/Alert';
 import AxiosInterceptor from './components/Common/AxiosInterceptor';
 import Layout from './components/Common/Layout';
-import Loading from './components/Common/Loading';
 import { AccessTokenProvider } from './contexts/AccessTokenContext';
 import { AlertProvider } from './contexts/AlertContext';
 import { LoadingProvider } from './contexts/LoadingContext';
+import { ToastProvider } from './contexts/ToastContext';
 import Login from './pages/Login';
 import Main from './pages/Main';
 import Register from './pages/Register';
@@ -20,16 +19,16 @@ function App() {
         <AlertProvider>
           <AccessTokenProvider>
             <LoadingProvider>
-              <Loading />
-              <AxiosInterceptor />
-              <Alert />
-              <Routes>
-                <Route element={<Layout />}>
-                  <Route path="/" element={<Main />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/login" element={<Login />} />
-                </Route>
-              </Routes>
+              <ToastProvider>
+                <AxiosInterceptor />
+                <Routes>
+                  <Route element={<Layout />}>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" element={<Login />} />
+                  </Route>
+                </Routes>
+              </ToastProvider>
             </LoadingProvider>
           </AccessTokenProvider>
         </AlertProvider>

@@ -14,6 +14,24 @@ const theme = createTheme({
       light: '#B0A8F7',
       contrastText: '#FFFFFF',
     },
+    alert: {
+      info: {
+        main: '#2196f3',
+        light: '#eaf1fb',
+      },
+      success: {
+        main: '#4caf50',
+        light: '#eaf7ea',
+      },
+      warning: {
+        main: '#ff9800',
+        light: '#fff4e5',
+      },
+      error: {
+        main: '#f44336',
+        light: '#fdeaea',
+      },
+    },
     tooltip: {
       main: '#434343',
       contrastText: '#FFFFFF',

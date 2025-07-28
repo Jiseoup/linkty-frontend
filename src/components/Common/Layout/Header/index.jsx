@@ -15,7 +15,7 @@ import { HeaderWrapper, ButtonWrapper } from './styled';
 function Header() {
   const navigate = useNavigate();
 
-  const { showError } = useAlertContext();
+  const { alertError } = useAlertContext();
   const { accessToken, clearAccessToken } = useAccessTokenContext();
 
   // Register button click handler.
@@ -33,7 +33,7 @@ function Header() {
     try {
       await postLogout();
     } catch (error) {
-      showError({
+      alertError({
         title: '로그아웃에 실패했습니다.',
         message:
           '서버 세션이 완전히 종료되지 않았을 수 있습니다.' +

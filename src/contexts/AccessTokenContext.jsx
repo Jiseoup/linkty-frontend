@@ -12,7 +12,7 @@ const AccessTokenContext = createContext();
 export const AccessTokenProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const { showWarning } = useAlertContext();
+  const { alertWarning } = useAlertContext();
 
   const [accessToken, setAccessToken] = useState(null);
 
@@ -29,7 +29,7 @@ export const AccessTokenProvider = ({ children }) => {
         const response = await postRefreshToken();
         setAccessToken(response.accessToken);
       } catch (error) {
-        showWarning({
+        alertWarning({
           title: '로그인 세션이 만료되었습니다.',
           message:
             '다시 로그인하여 Linkty의 모든 서비스를 이용하실 수 있습니다.',

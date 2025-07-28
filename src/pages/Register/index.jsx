@@ -19,7 +19,7 @@ import { postRegister } from '../../services/user';
 function Register() {
   const navigate = useNavigate();
 
-  const { showSuccess, showError } = useAlertContext();
+  const { alertSuccess, alertError } = useAlertContext();
 
   const [email, setEmail] = useState(null);
   const [isEmailSent, setIsEmailSent] = useState(false);
@@ -40,14 +40,14 @@ function Register() {
     try {
       await postVerification({ email });
       setIsEmailSent(true);
-      showSuccess({
+      alertSuccess({
         title: '인증번호가 발송되었습니다.',
         message:
           `${email} 메일함을 확인해주세요.` +
           '\n메일이 오지 않으면 스팸함을 확인하거나, 재발송을 시도해 주세요.',
       });
     } catch (error) {
-      showError({
+      alertError({
         title: '인증번호 발송에 실패했습니다.',
         message: parseErrorMessage(error),
       });
@@ -59,12 +59,12 @@ function Register() {
     try {
       await postVerificationConfirm({ email, code });
       setIsCodeConfirmed(true);
-      showSuccess({
+      alertSuccess({
         title: '이메일 인증이 완료되었습니다.',
         message: '회원가입을 이어서 진행해 주세요.',
       });
     } catch (error) {
-      showError({
+      alertError({
         title: '이메일 인증에 실패했습니다.',
         message: parseErrorMessage(error),
       });
@@ -77,7 +77,7 @@ function Register() {
 
     // Check if email is sent and code is confirmed.
     if (!isEmailSent || !isCodeConfirmed) {
-      showError({
+      alertError({
         title: '이메일 인증이 완료되지 않았습니다.',
         message: '이메일 인증을 완료해 주세요.',
       });
@@ -86,7 +86,7 @@ function Register() {
 
     // Check if password and passwordConfirm are the same.
     if (password !== passwordConfirm) {
-      showError({
+      alertError({
         title: '비밀번호가 일치하지 않습니다.',
         message: '비밀번호를 다시 확인해 주세요.',
       });
@@ -95,7 +95,7 @@ function Register() {
 
     // Check if captcha verification has been completed.
     if (!captchaValue) {
-      showError({
+      alertError({
         title: '로봇이 아님을 확인해 주세요.',
         message: '회원가입을 완료하려면 reCAPTCHA 인증을 진행해 주세요.',
       });
@@ -108,13 +108,13 @@ function Register() {
         password: password,
         captchaToken: captchaValue,
       });
-      showSuccess({
+      alertSuccess({
         title: '회원가입을 진심으로 환영합니다!',
         message: '로그인하여 Linkty의 모든 서비스를 자유롭게 이용해보세요.',
         onClose: () => navigate('/login'),
       });
     } catch (error) {
-      showError({
+      alertError({
         title: '회원가입에 실패했습니다.',
         message: parseErrorMessage(error),
       });
