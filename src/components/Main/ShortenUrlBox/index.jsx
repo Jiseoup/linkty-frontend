@@ -9,7 +9,8 @@ function ShortenUrlBox({ shortenUrl }) {
   return (
     <UrlBox>
       {/* URL Label. */}
-      <UrlLabel>단축 URL : </UrlLabel>
+      {/* <UrlLabel>단축 URL : </UrlLabel> */}
+      <UrlLabel>깃허브 액션 테스트 : </UrlLabel>
 
       {/* URL Link. */}
       <UrlLink href={fullUrl} target="_blank" rel="noopener noreferrer">
