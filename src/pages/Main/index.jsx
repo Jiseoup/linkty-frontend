@@ -6,6 +6,7 @@ import AdvancedSettings from '../../components/Main/AdvancedSettings';
 import ShortenUrlBox from '../../components/Main/ShortenUrlBox';
 import Title from '../../components/Main/Title';
 import UrlShortener from '../../components/Main/UrlShortener';
+import { useAccessTokenContext } from '../../contexts/AccessTokenContext';
 import { useAlertContext } from '../../contexts/AlertContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
 import { postShortenUrl } from '../../services/shortenUrl';
@@ -13,7 +14,9 @@ import { formatDatetime } from '../../utils/datetime';
 
 function Main() {
   const { alertError } = useAlertContext();
+  const { accessToken } = useAccessTokenContext();
 
+  const isLoggedIn = !!accessToken;
   const [shortenUrl, setShortenUrl] = useState(null);
   const [originalUrl, setOriginalUrl] = useState(null);
   const [activeDate, setActiveDate] = useState(null);
@@ -32,7 +35,7 @@ function Main() {
         originalUrl: originalUrl,
         activeDate: formattedActiveDate || null,
         expireDate: formattedExpireDate || null,
-        alias: alias || null,
+        alias: alias || null, // TODO: 로그인 유저일 경우, 새 단축 URL 등의 이름으로 생성
       });
       setShortenUrl(response.shortenUrl);
     } catch (error) {
@@ -64,6 +67,7 @@ function Main() {
             setActiveDate={setActiveDate}
             setExpireDate={setExpireDate}
             setAlias={setAlias}
+            isLoggedIn={isLoggedIn}
           />
         </FormBox>
 
