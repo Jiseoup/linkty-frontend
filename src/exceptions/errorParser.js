@@ -12,5 +12,5 @@ export const parseErrorMessage = (error) => {
     return messageEntry(field);
   }
 
-  return messageEntry || `알 수 없는 오류 코드: ${code}`;
+  return messageEntry || `오류 코드: ${code}`;
 };

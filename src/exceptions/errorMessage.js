@@ -15,6 +15,7 @@ export const ERROR_MESSAGES = {
   INVALID_URL_FORMAT: 'URL 형식이 올바르지 않습니다.',
   URL_NOT_ACTIVATED: '아직 활성화되지 않은 URL입니다.', // TODO: 활성X 페이지 리다이렉트?
   URL_EXPIRED: '이 URL은 만료되었습니다.', // TODO: 만료 페이지 리다이렉트?
+  ADVANCED_SETTINGS_UNAUTHORIZED: '고급 설정은 로그인 후 이용 가능합니다.',
 
   // User Service Error Codes.
   USER_NOT_FOUND: '존재하지 않는 사용자입니다.',
