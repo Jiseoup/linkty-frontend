@@ -1,7 +1,6 @@
 import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import AxiosInterceptor from './components/Common/AxiosInterceptor';
 import Layout from './components/Common/Layout';
 import { AccessTokenProvider } from './contexts/AccessTokenContext';
 import { AlertProvider } from './contexts/AlertContext';
@@ -20,7 +19,6 @@ function App() {
           <AccessTokenProvider>
             <LoadingProvider>
               <ToastProvider>
-                <AxiosInterceptor />
                 <Routes>
                   <Route element={<Layout />}>
                     <Route path="/" element={<Main />} />

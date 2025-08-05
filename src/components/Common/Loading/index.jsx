@@ -4,7 +4,7 @@ import { CircularProgress } from '@mui/material';
 
 import {
   useLoadingContext,
-  setLoadingContext,
+  setGlobalSetLoading,
 } from '../../../contexts/LoadingContext';
 
 import { StyledBackdrop } from './styled';
@@ -15,7 +15,7 @@ function Loading() {
 
   // Register setLoading for global access.
   useEffect(() => {
-    setLoadingContext({ setLoading });
+    setGlobalSetLoading(setLoading);
   }, [setLoading]);
 
   return (

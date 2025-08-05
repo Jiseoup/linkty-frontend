@@ -6,12 +6,12 @@ import Loading from '../components/Common/Loading';
 let globalSetLoading = null;
 
 // Register the setLoading function globally.
-export const setLoadingContext = ({ setLoading }) => {
+export const setGlobalSetLoading = (setLoading) => {
   globalSetLoading = setLoading;
 };
 
 // Retrieve the globally registered setLoading function.
-export const getLoadingContext = () => ({
+export const getGlobalSetLoading = () => ({
   setLoading: globalSetLoading,
 });
 

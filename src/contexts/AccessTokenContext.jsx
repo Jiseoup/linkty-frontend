@@ -6,6 +6,19 @@ import { postRefreshToken } from '../services/user';
 
 import { useAlertContext } from './AlertContext';
 
+// Global variable to store access token for use outside components.
+let globalAccessToken = null;
+
+// Set the global access token.
+export const setGlobalAccessToken = (accessToken) => {
+  globalAccessToken = accessToken;
+};
+
+// Get the global access token.
+export const getGlobalAccessToken = () => ({
+  accessToken: globalAccessToken,
+});
+
 const AccessTokenContext = createContext();
 
 // Access Token Context Provider.
@@ -14,12 +27,26 @@ export const AccessTokenProvider = ({ children }) => {
 
   const { alertWarning } = useAlertContext();
 
-  const [accessToken, setAccessToken] = useState(null);
+  const [accessTokenState, setAccessTokenState] = useState(null);
 
-  // Clear the stored access token.
+  // Set the access token.
+  const setAccessToken = (accessToken) => {
+    // Set the access token state and global variable.
+    setAccessTokenState(accessToken);
+    setGlobalAccessToken(accessToken);
+
+    // Set loggedIn status in the local storage.
+    localStorage.setItem('loggedIn', 'true');
+  };
+
+  // Clear the access token.
   const clearAccessToken = () => {
-    setAccessToken(null);
-    localStorage.removeItem('loggedIn'); // Remove loggedIn status from the local storage.
+    // Clear the access token state and global variable.
+    setAccessTokenState(null);
+    setGlobalAccessToken(null);
+
+    // Remove loggedIn status from the local storage.
+    localStorage.removeItem('loggedIn');
   };
 
   // Trying to refresh the access token on initial load.
@@ -44,7 +71,11 @@ export const AccessTokenProvider = ({ children }) => {
 
   return (
     <AccessTokenContext.Provider
-      value={{ accessToken, setAccessToken, clearAccessToken }}
+      value={{
+        accessToken: accessTokenState,
+        setAccessToken,
+        clearAccessToken,
+      }}
     >
       {children}
     </AccessTokenContext.Provider>
