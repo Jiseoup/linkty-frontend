@@ -2,11 +2,13 @@ import { fieldName } from './fieldName';
 
 export const ERROR_MESSAGES = {
   // Unexpected Error Codes.
-  UNKNOWN_ERROR: '알 수 없는 오류가 발생했습니다.',
-  VALIDATION_ERROR: '알 수 없는 오류가 발생했습니다.',
+  UNKNOWN_ERROR:
+    '알 수 없는 오류가 발생했습니다.\n새로고침 후 다시 시도해 주세요.',
+  VALIDATION_ERROR:
+    '알 수 없는 오류가 발생했습니다.\n새로고침 후 다시 시도해 주세요.',
 
   // Common Error Codes.
-  INVALID_TOKEN: '유효하지 않은 토큰입니다.',
+  INVALID_TOKEN: '유효하지 않은 토큰입니다.\n새로고침 후 다시 시도해 주세요.',
   EMAIL_CONFLICTED: '이미 사용 중인 이메일입니다.',
 
   // Url Service Error Codes.

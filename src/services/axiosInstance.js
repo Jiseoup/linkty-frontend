@@ -69,6 +69,7 @@ axiosInstance.interceptors.response.use(
     if (
       error.response?.status === 401 &&
       localStorage.getItem('loggedIn') === 'true' &&
+      !requestConfig.url.includes('/refresh-token') &&
       !requestConfig._isRetry
     ) {
       requestConfig._isRetry = true;
