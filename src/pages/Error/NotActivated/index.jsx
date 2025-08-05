@@ -1,13 +1,13 @@
 import Card from '../../../components/Common/Card';
 
-function NotFound() {
+function NotActivated() {
   return (
     <>
       <Card>
-        <h1>404 NOT FOUND</h1>
+        <h1>URL NOT ACTIVATED</h1>
       </Card>
     </>
   );
 }
 
-export default NotFound;
+export default NotActivated;

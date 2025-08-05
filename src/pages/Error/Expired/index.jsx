@@ -1,13 +1,13 @@
 import Card from '../../../components/Common/Card';
 
-function NotFound() {
+function Expired() {
   return (
     <>
       <Card>
-        <h1>404 NOT FOUND</h1>
+        <h1>URL EXPIRED</h1>
       </Card>
     </>
   );
 }
 
-export default NotFound;
+export default Expired;
