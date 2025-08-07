@@ -2,44 +2,45 @@ import { useEffect, useState } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
+import { ERROR_CODES } from '../../exceptions/errorCode';
+
 import Expired from './Expired';
 import NotActivated from './NotActivated';
 import NotFound from './NotFound';
 
 function Error() {
   const location = useLocation();
-  const [code, setCode] = useState(null);
 
+  const [errorCode, setErrorCode] = useState(null);
+
+  // Trying to fetch error code based on the current URL path.
   useEffect(() => {
     const fetchErrorCode = async () => {
-      const path = location.pathname;
-      const fullUrl = `${process.env.REACT_APP_API_URL}${path}`;
-      console.log(fullUrl);
-
       try {
-        const res = await fetch(fullUrl);
-        if (res.status === 200) return;
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}${location.pathname}`
+        );
+        if (response.ok) return;
 
-        const data = await res.json();
-        setCode(data.code || 'UNKNOWN_ERROR');
+        const data = await response.json();
+        setErrorCode(data.code || ERROR_CODES.URL_NOT_FOUND);
       } catch (error) {
-        console.error('Error fetching error code:', error);
-        setCode('UNKNOWN_ERROR');
+        setErrorCode(ERROR_CODES.URL_NOT_FOUND);
       }
     };
-
     fetchErrorCode();
   }, [location.pathname]);
 
-  if (!code) return null;
+  // Don't render anything until error code is received.
+  if (!errorCode) return null;
 
-  switch (code) {
-    case 'URL_EXPIRED':
+  // Render error page based on the error code.
+  switch (errorCode) {
+    case ERROR_CODES.URL_EXPIRED:
       return <Expired />;
-    case 'URL_NOT_ACTIVATED':
+    case ERROR_CODES.URL_NOT_ACTIVATED:
       return <NotActivated />;
-    case 'URL_NOT_FOUND':
-    case 'UNKNOWN_ERROR':
+    case ERROR_CODES.URL_NOT_FOUND:
     default:
       return <NotFound />;
   }
