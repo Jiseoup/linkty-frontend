@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react';
 
-import { useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Expired from './Expired';
 import NotActivated from './NotActivated';
 import NotFound from './NotFound';
 
 function ErrorPage() {
+  const { shortenUrl } = useParams();
   const [code, setCode] = useState(null);
-  const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    const errorCode = searchParams.get('code');
-    if (errorCode) {
-      setCode(errorCode);
-    } else {
-      setCode('URL_NOT_FOUND');
-    }
-  }, [searchParams]);
+    fetch(`/${shortenUrl}`)
+      .then(async (response) => {
+        if (response.ok) {
+          return;
+        }
+        try {
+          const data = await response.json();
+          setCode(data.code);
+        } catch {
+          setCode('URL_NOT_FOUND');
+        }
+      })
+      .catch(() => setCode('URL_NOT_FOUND'));
+  }, [shortenUrl]);
 
   if (!code) return null;
 
