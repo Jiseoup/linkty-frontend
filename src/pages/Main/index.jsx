@@ -35,7 +35,9 @@ function Main() {
         originalUrl: originalUrl,
         activeDate: formattedActiveDate || null,
         expireDate: formattedExpireDate || null,
-        alias: alias || null, // TODO: 로그인 유저일 경우, 새 단축 URL 등의 이름으로 생성
+        // TODO: 로그인 유저일 경우, 새 단축 URL 등의 이름으로 생성
+        // TODO: null 일 경우 마이페이지에서 이름 없는 URL 등으로 표기하기?
+        alias: alias || null,
       });
       setShortenUrl(response.shortenUrl);
     } catch (error) {
