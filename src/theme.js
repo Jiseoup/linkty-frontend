@@ -16,20 +16,20 @@ const theme = createTheme({
     },
     alert: {
       info: {
-        main: '#2196f3',
-        light: '#eaf1fb',
+        main: '#2196F3',
+        light: '#EAF1FB',
       },
       success: {
-        main: '#4caf50',
-        light: '#eaf7ea',
+        main: '#4CAF50',
+        light: '#EAF7EA',
       },
       warning: {
-        main: '#ff9800',
-        light: '#fff4e5',
+        main: '#FF9800',
+        light: '#FFF4E5',
       },
       error: {
-        main: '#f44336',
-        light: '#fdeaea',
+        main: '#F44336',
+        light: '#FDEAEA',
       },
       default: '#434343',
     },
@@ -40,6 +40,11 @@ const theme = createTheme({
     link: {
       main: '#555555',
       hover: '#333333',
+    },
+    footer: {
+      main: '#FAFAFA',
+      light: '#DFDFDF',
+      background: '#1F1F1F',
     },
   },
 });

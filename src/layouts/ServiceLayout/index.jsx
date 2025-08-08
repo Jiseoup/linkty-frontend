@@ -8,10 +8,10 @@ function ServiceLayout() {
   return (
     <>
       <Header />
-      <BackgroundWrapper>
+      <BackgroundWrapper style={{ flex: 1 }}>
         <Outlet />
-        <Footer />
       </BackgroundWrapper>
+      <Footer />
     </>
   );
 }
