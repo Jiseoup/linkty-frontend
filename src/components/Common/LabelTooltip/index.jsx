@@ -1,13 +1,15 @@
-import { Container, HelpIcon, StyledTooltip } from './styled';
+import Tooltip from '../ToolTip';
+
+import { Container, HelpIcon } from './styled';
 
 // Label Tooltip Component.
 function LabelTooltip({ label, tooltip }) {
   return (
     <Container>
       {label}
-      <StyledTooltip title={tooltip} arrow>
+      <Tooltip title={tooltip}>
         <HelpIcon />
-      </StyledTooltip>
+      </Tooltip>
     </Container>
   );
 }
