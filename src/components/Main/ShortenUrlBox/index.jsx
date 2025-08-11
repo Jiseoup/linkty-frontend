@@ -91,7 +91,7 @@ function ShortenUrlBox({ shortenUrl }) {
 
         {/* Right URL detail contents. */}
         <ContentBox>
-          <Label>URL 상세정보</Label>
+          <Label>URL 상세 정보</Label>
 
           {/* URL alias container. */}
           <DetailBox>
@@ -115,18 +115,17 @@ function ShortenUrlBox({ shortenUrl }) {
         {/* Bottom register promotion contents. */}
         <RegisterBox>
           <RegisterText>
-            🎯 <strong>회원가입하면</strong> URL 별칭, 활성일/만료일 설정, 통계
-            확인 등 더 많은 기능을 이용할 수 있어요!
+            🎯 <strong>회원가입 후</strong> URL 별칭, 활성일/만료일 설정, 통계
+            확인 등 다양한 기능을 <strong>무료로</strong> 이용해보세요!
           </RegisterText>
 
           {/* Register button. */}
           <RegisterButton
-            text="회원가입하기"
+            text="회원가입"
             variant="contained"
             color="secondary"
             startIcon={<PersonAddIcon />}
             onClick={onRegisterClick}
-            size="small"
           />
         </RegisterBox>
       </GridBox>
