@@ -17,11 +17,16 @@ function Main() {
   const { accessToken } = useAccessTokenContext();
 
   const isLoggedIn = !!accessToken;
-  const [shortenUrl, setShortenUrl] = useState(null);
   const [originalUrl, setOriginalUrl] = useState(null);
   const [activeDate, setActiveDate] = useState(null);
   const [expireDate, setExpireDate] = useState(null);
   const [alias, setAlias] = useState(null);
+  const [urlInfo, setUrlInfo] = useState({
+    shortenUrl: null,
+    activeDate: null,
+    expireDate: null,
+    alias: null,
+  });
 
   // Shorten URL Button Click Handler.
   const onShortenButtonClick = async (e) => {
@@ -39,7 +44,12 @@ function Main() {
         // TODO: null 일 경우 마이페이지에서 이름 없는 URL 등으로 표기하기?
         alias: alias || null,
       });
-      setShortenUrl(response.shortenUrl);
+      setUrlInfo({
+        shortenUrl: response.shortenUrl,
+        activeDate: response.activeDate,
+        expireDate: response.expireDate,
+        alias: response.alias,
+      });
     } catch (error) {
       alertError({
         title: 'URL 단축에 실패했습니다.',
@@ -75,7 +85,13 @@ function Main() {
       </Card>
 
       {/* Shorten URL Box Component. */}
-      <ShortenUrlBox shortenUrl={shortenUrl} />
+      <ShortenUrlBox
+        shortenUrl={urlInfo.shortenUrl}
+        activeDate={urlInfo.activeDate}
+        expireDate={urlInfo.expireDate}
+        alias={urlInfo.alias}
+        isLoggedIn={isLoggedIn}
+      />
     </>
   );
 }

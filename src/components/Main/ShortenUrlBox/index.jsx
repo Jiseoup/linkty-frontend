@@ -1,6 +1,8 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ko';
 import { useNavigate } from 'react-router-dom';
 
 import { useToastContext } from '../../../contexts/ToastContext';
@@ -22,8 +24,14 @@ import {
   RegisterButton,
 } from './styled';
 
-// Component for showing the Shorten URL.
-function ShortenUrlBox({ shortenUrl }) {
+// Shorten URL Box Component.
+function ShortenUrlBox({
+  shortenUrl,
+  activeDate,
+  expireDate,
+  alias,
+  isLoggedIn,
+}) {
   const navigate = useNavigate();
 
   const { toastSuccess, toastError } = useToastContext();
@@ -96,38 +104,56 @@ function ShortenUrlBox({ shortenUrl }) {
           {/* URL alias container. */}
           <DetailBox>
             <DetailLabel>별칭</DetailLabel>
-            <DetailValue>이벤트 프로모션 링크</DetailValue>
+            <DetailValue>
+              {alias ? alias : !isLoggedIn ? '로그인 후 이용 가능' : '없음'}
+            </DetailValue>
           </DetailBox>
 
           {/* URL active date container. */}
           <DetailBox>
             <DetailLabel>활성일</DetailLabel>
-            <DetailValue>2024년 05월 02일 13시 03분</DetailValue>
+            <DetailValue>
+              {activeDate
+                ? dayjs(activeDate).format('YYYY년 MM월 DD일 HH시 mm분')
+                : !isLoggedIn
+                  ? '로그인 후 이용 가능'
+                  : '없음'}
+            </DetailValue>
           </DetailBox>
 
           {/* URL expire date container. */}
           <DetailBox>
             <DetailLabel>만료일</DetailLabel>
-            <DetailValue>2025년 06월 02일 13시 03분</DetailValue>
+            <DetailValue>
+              {expireDate
+                ? dayjs(expireDate).format('YYYY년 MM월 DD일 HH시 mm분')
+                : !isLoggedIn
+                  ? '로그인 후 이용 가능'
+                  : '없음'}
+            </DetailValue>
           </DetailBox>
         </ContentBox>
 
-        {/* Bottom register promotion contents. */}
-        <RegisterBox>
-          <RegisterText>
-            🎯 <strong>회원가입 후</strong> URL 별칭, 활성일/만료일 설정, 통계
-            확인 등 다양한 기능을 <strong>무료로</strong> 이용해보세요!
-          </RegisterText>
+        {!isLoggedIn && (
+          <>
+            {/* Bottom register promotion contents. */}
+            <RegisterBox>
+              <RegisterText>
+                🎯 <strong>회원가입 후</strong> URL 별칭, 활성일/만료일 설정,
+                통계 확인 등 다양한 기능을 <strong>무료로</strong> 이용해보세요!
+              </RegisterText>
 
-          {/* Register button. */}
-          <RegisterButton
-            text="회원가입"
-            variant="contained"
-            color="secondary"
-            startIcon={<PersonAddIcon />}
-            onClick={onRegisterClick}
-          />
-        </RegisterBox>
+              {/* Register button. */}
+              <RegisterButton
+                text="회원가입"
+                variant="contained"
+                color="secondary"
+                startIcon={<PersonAddIcon />}
+                onClick={onRegisterClick}
+              />
+            </RegisterBox>
+          </>
+        )}
       </GridBox>
     </ShortenUrlCard>
   );
