@@ -72,10 +72,10 @@ function Main() {
             isLoggedIn={isLoggedIn}
           />
         </FormBox>
-
-        {/* Shorten URL Box Component. */}
-        <ShortenUrlBox shortenUrl={shortenUrl} />
       </Card>
+
+      {/* Shorten URL Box Component. */}
+      <ShortenUrlBox shortenUrl={shortenUrl} />
     </>
   );
 }
