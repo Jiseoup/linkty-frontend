@@ -9,7 +9,7 @@ export const Image = styled('img')({
 export const Description = styled(Typography)(({ theme }) => ({
   fontSize: 22,
   fontWeight: 500,
-  color: '#888888',
+  color: '#666666',
   marginBottom: theme.spacing(3),
   textAlign: 'center',
 }));

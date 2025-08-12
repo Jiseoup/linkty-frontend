@@ -8,6 +8,7 @@ import Title from '../../components/Main/Title';
 import UrlShortener from '../../components/Main/UrlShortener';
 import { useAccessTokenContext } from '../../contexts/AccessTokenContext';
 import { useAlertContext } from '../../contexts/AlertContext';
+import { useToastContext } from '../../contexts/ToastContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
 import { postShortenUrl } from '../../services/shortenUrl';
 import { formatDatetime } from '../../utils/datetime';
@@ -15,6 +16,7 @@ import { formatDatetime } from '../../utils/datetime';
 function Main() {
   const { alertError } = useAlertContext();
   const { accessToken } = useAccessTokenContext();
+  const { toastSuccess } = useToastContext();
 
   const isLoggedIn = !!accessToken;
   const [originalUrl, setOriginalUrl] = useState(null);
@@ -44,12 +46,27 @@ function Main() {
         // TODO: null 일 경우 마이페이지에서 이름 없는 URL 등으로 표기하기?
         alias: alias || null,
       });
+
+      // Set created shorten url informations.
       setUrlInfo({
         shortenUrl: response.shortenUrl,
         activeDate: response.activeDate,
         expireDate: response.expireDate,
         alias: response.alias,
       });
+
+      // Toast success message based on login status.
+      !isLoggedIn
+        ? toastSuccess({ message: '단축 URL이 생성되었습니다!' })
+        : toastSuccess({
+            message: (
+              <>
+                단축 URL이 생성되었습니다!
+                <br />
+                생성된 URL은 마이페이지에서 관리 가능합니다.
+              </>
+            ),
+          });
     } catch (error) {
       alertError({
         title: 'URL 단축에 실패했습니다.',

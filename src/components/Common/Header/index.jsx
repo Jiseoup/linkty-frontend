@@ -49,6 +49,11 @@ function Header() {
     }
   };
 
+  // My Page button click handler.
+  const onMyPageClick = () => {
+    // TODO: Dialog 띄우기
+  };
+
   return (
     <HeaderWrapper component="header">
       {/* Header Logo. */}
@@ -74,6 +79,7 @@ function Header() {
               color="primary"
               startIcon={<PersonIcon />}
               // TODO: Mypage onClick 함수 구현 필요
+              onClick={onMyPageClick}
             />
           </>
         ) : (
