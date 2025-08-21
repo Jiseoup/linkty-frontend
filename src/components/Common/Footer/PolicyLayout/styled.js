@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 export const PolicyWrapper = styled(Box)(({ theme }) => ({
   minWidth: 900,
-  backgroundColor: theme.palette.grey[50],
+  backgroundColor: theme.palette.grey[100],
 }));
 
 export const Header = styled(AppBar)({
