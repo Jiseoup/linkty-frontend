@@ -1,7 +1,7 @@
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 
 import {
-  Card,
+  TopCard,
   EffectiveDateChip,
   Description,
   AlertBox,
@@ -14,7 +14,7 @@ function PolicyTopCard({ title, description }) {
   const effectiveDate = '2025년 09월 01일';
 
   return (
-    <Card>
+    <TopCard>
       {/* Chip component of effective date. */}
       <EffectiveDateChip
         icon={<EventAvailableOutlinedIcon fontSize="small" />}
@@ -31,7 +31,7 @@ function PolicyTopCard({ title, description }) {
           본 {title}은 {effectiveDate}부터 적용됩니다.
         </AlertText>
       </AlertBox>
-    </Card>
+    </TopCard>
   );
 }
 
