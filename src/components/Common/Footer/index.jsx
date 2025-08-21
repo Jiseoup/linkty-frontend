@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import DescriptionIcon from '@mui/icons-material/Description';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import { useNavigate } from 'react-router-dom';
@@ -78,7 +78,7 @@ function Footer() {
           text="서비스 이용약관"
           variant="outlined"
           color="primary"
-          startIcon={<DescriptionIcon />}
+          startIcon={<LibraryBooksIcon />}
           onClick={onTermsClick}
         />
       </RightContent>
