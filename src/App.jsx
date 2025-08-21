@@ -8,6 +8,8 @@ import { ToastProvider } from './contexts/ToastContext';
 import ErrorLayout from './layouts/ErrorLayout';
 import ServiceLayout from './layouts/ServiceLayout';
 import Error from './pages/Error';
+import Privacy from './pages/Footer/Privacy';
+import Terms from './pages/Footer/Terms';
 import Login from './pages/Login';
 import Main from './pages/Main';
 import Register from './pages/Register';
@@ -28,6 +30,9 @@ function App() {
                     <Route path="/" element={<Main />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
+                    {/* Footer pages. */}
+                    <Route path="/privacy" element={<Privacy />} />
+                    <Route path="/terms" element={<Terms />} />
                   </Route>
 
                   {/* Error pages layout. */}
