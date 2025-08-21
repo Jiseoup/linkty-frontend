@@ -10,6 +10,7 @@ import {
   FooterText,
 } from './styled';
 
+// Policy layout component for privacy policy and terms of service pages.
 function PolicyLayout({ title, titleIcon, lastUpdated, children }) {
   return (
     <PolicyWrapper>
