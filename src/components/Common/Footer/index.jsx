@@ -5,6 +5,8 @@ import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import { useNavigate } from 'react-router-dom';
 
+import { getCopyrightText } from '../../../utils/copyright';
+
 import {
   StyledFooter,
   LeftContent,
@@ -43,30 +45,12 @@ function Footer() {
     navigate('/terms');
   };
 
-  // Get copyright year string.
-  const getCopyrightYear = () => {
-    const startYear = 2025;
-    const currentYear = new Date().getFullYear();
-
-    let copyrightYear = '';
-
-    if (startYear === currentYear) {
-      copyrightYear = `${startYear}.`;
-    } else {
-      copyrightYear = `${startYear}-${currentYear}.`;
-    }
-
-    return copyrightYear;
-  };
-
   return (
     <StyledFooter>
       {/* Footer left contents. */}
       <LeftContent>
         <Title>Linkty</Title>
-        <Copyright>
-          COPYRIGHT © {getCopyrightYear()} Linkty. ALL RIGHTS RESERVED.
-        </Copyright>
+        <Copyright>{getCopyrightText()}</Copyright>
       </LeftContent>
 
       {/* Footer right contents. */}
