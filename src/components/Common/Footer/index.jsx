@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import DescriptionIcon from '@mui/icons-material/Description';
 import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
@@ -11,10 +13,23 @@ import {
   Copyright,
   LinkButton,
 } from './styled';
+import SupportDialog from './SupportDialog';
 
 // Common Footer Component.
 function Footer() {
   const navigate = useNavigate();
+
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
+
+  // Support button click handler.
+  const onSupportClick = () => {
+    setIsSupportOpen(true);
+  };
+
+  // Support button close handler.
+  const onSupportClose = () => {
+    setIsSupportOpen(false);
+  };
 
   // Privacy button click handler.
   const onPrivacyClick = () => {
@@ -26,11 +41,6 @@ function Footer() {
   const onTermsClick = () => {
     // TODO: Terms 페이지 구현 필요
     navigate('/terms');
-  };
-
-  // Support button click handler.
-  const onSupportClick = () => {
-    // TODO: Support 모달? 구현 필요
   };
 
   // Get copyright year string.
@@ -88,6 +98,9 @@ function Footer() {
           onClick={onTermsClick}
         />
       </RightContent>
+
+      {/* Support dialog component. */}
+      <SupportDialog isOpen={isSupportOpen} onClose={onSupportClose} />
     </StyledFooter>
   );
 }

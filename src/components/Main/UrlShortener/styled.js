@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import Button from '../../Common/Button';
 
 export const ShortenButton = styled(Button)({
-  background: 'linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%)',
+  background: 'linear-gradient(90deg, #6A82FB 0%, #FC5C7D 100%)',
   color: '#ffffff',
   fontSize: '16px',
   fontWeight: '700',
@@ -14,6 +14,6 @@ export const ShortenButton = styled(Button)({
   flexShrink: 0,
   minWidth: '110px',
   '&:hover': {
-    background: 'linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%)',
+    background: 'linear-gradient(90deg, #FC5C7D 0%, #6A82FB 100%)',
   },
 });
