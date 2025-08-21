@@ -32,12 +32,12 @@ import {
 function SupportDialog({ isOpen, onClose }) {
   const { toastSuccess, toastError } = useToastContext();
 
-  const EMAIL_ADDRESS = 'support@linkty.kr';
+  const email = 'support@linkty.kr';
 
   // Copy email button click handler.
   const onCopyEmailClick = () => {
     navigator.clipboard
-      .writeText(EMAIL_ADDRESS)
+      .writeText(email)
       .then(() => {
         toastSuccess({ message: '이메일 주소가 클립보드에 복사되었습니다!' });
       })
@@ -50,7 +50,7 @@ function SupportDialog({ isOpen, onClose }) {
 
   // Send email button click handler.
   const onSendEmailClick = () => {
-    window.location.href = `mailto:${EMAIL_ADDRESS}`;
+    window.location.href = `mailto:${email}`;
   };
 
   return (
@@ -91,7 +91,7 @@ function SupportDialog({ isOpen, onClose }) {
           </EmailHeader>
 
           {/* Email address box. */}
-          <EmailAddress>{EMAIL_ADDRESS}</EmailAddress>
+          <EmailAddress>{email}</EmailAddress>
 
           {/* Email buttons container. */}
           <EmailButtonBox>
