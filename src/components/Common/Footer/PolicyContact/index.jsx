@@ -34,7 +34,7 @@ function PolicyContact({ title, titleIcon, nameLabel }) {
         <ContentBox>
           <EmailIcon />
           <LabelText>이메일 주소 :</LabelText>
-          <ValueText>support@linkty.kr</ValueText>
+          <ValueText>{process.env.REACT_APP_SUPPORT_EMAIL}</ValueText>
         </ContentBox>
       </ContentWrapper>
     </ContactCard>

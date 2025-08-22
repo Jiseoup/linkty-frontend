@@ -32,7 +32,7 @@ import {
 function SupportDialog({ isOpen, onClose }) {
   const { toastSuccess, toastError } = useToastContext();
 
-  const email = 'support@linkty.kr';
+  const email = process.env.REACT_APP_SUPPORT_EMAIL;
 
   // Copy email button click handler.
   const onCopyEmailClick = () => {
