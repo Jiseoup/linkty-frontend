@@ -1,7 +1,7 @@
 import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlined';
 
 import {
-  TopCard,
+  DescriptionCard,
   EffectiveDateChip,
   Description,
   AlertBox,
@@ -9,12 +9,12 @@ import {
 } from './styled';
 
 // Policy top card component for privacy policy and terms of service pages.
-function PolicyTopCard({ title, description }) {
+function PolicyDescription({ title, description }) {
   // TODO: 날짜 수정 필요함
   const effectiveDate = '2025년 09월 01일';
 
   return (
-    <TopCard>
+    <DescriptionCard>
       {/* Chip component of effective date. */}
       <EffectiveDateChip
         icon={<EventAvailableOutlinedIcon fontSize="small" />}
@@ -31,8 +31,8 @@ function PolicyTopCard({ title, description }) {
           본 {title}은 {effectiveDate}부터 적용됩니다.
         </AlertText>
       </AlertBox>
-    </TopCard>
+    </DescriptionCard>
   );
 }
 
-export default PolicyTopCard;
+export default PolicyDescription;

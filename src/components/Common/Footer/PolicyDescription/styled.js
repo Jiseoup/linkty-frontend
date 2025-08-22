@@ -1,7 +1,7 @@
 import { Alert, Card, Chip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const TopCard = styled(Card)(({ theme }) => ({
+export const DescriptionCard = styled(Card)(({ theme }) => ({
   borderRadius: theme.spacing(1),
   padding: theme.spacing(4),
   marginBottom: theme.spacing(4), // TODO: 조정 필요할 수도 있음

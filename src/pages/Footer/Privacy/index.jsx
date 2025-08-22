@@ -1,8 +1,8 @@
 import SecurityIcon from '@mui/icons-material/Security';
 
 import PolicyContent from '../../../components/Common/Footer/PolicyContent';
+import PolicyDescription from '../../../components/Common/Footer/PolicyDescription';
 import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
-import PolicyTopCard from '../../../components/Common/Footer/PolicyTopCard';
 
 import { sections } from './sections';
 
@@ -16,7 +16,7 @@ function Privacy() {
       titleIcon={<SecurityIcon color="primary" />}
       lastUpdated={lastUpdated}
     >
-      <PolicyTopCard
+      <PolicyDescription
         title={title}
         description={
           <span>
