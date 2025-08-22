@@ -10,8 +10,7 @@ import {
 
 // Policy top card component for privacy policy and terms of service pages.
 function PolicyDescription({ title, description }) {
-  // TODO: 날짜 수정 필요함
-  const effectiveDate = '2025년 09월 01일';
+  const effectiveDate = '2025년 09월 01일'; // TODO: 날짜 수정 필요함
 
   return (
     <DescriptionCard>

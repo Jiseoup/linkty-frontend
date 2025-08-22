@@ -11,7 +11,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
-// TODO: 내용 변경 필요
+// TODO: 내용 & 아이콘 변경 필요
 export const sections = [
   {
     title: '제1조 (목적)',

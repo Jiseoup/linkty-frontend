@@ -14,7 +14,6 @@ export const Header = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   color: '#FFFFFF',
   background: theme.palette.primary.main,
-  // background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
   padding: theme.spacing(1.5, 2),
   gap: theme.spacing(2),
 }));

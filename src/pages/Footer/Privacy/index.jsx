@@ -1,5 +1,7 @@
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import SecurityIcon from '@mui/icons-material/Security';
 
+import PolicyContact from '../../../components/Common/Footer/PolicyContact';
 import PolicyContent from '../../../components/Common/Footer/PolicyContent';
 import PolicyDescription from '../../../components/Common/Footer/PolicyDescription';
 import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
@@ -16,6 +18,7 @@ function Privacy() {
       titleIcon={<SecurityIcon color="primary" />}
       lastUpdated={lastUpdated}
     >
+      {/* Privacy policy description component. */}
       <PolicyDescription
         title={title}
         description={
@@ -36,6 +39,13 @@ function Privacy() {
           contents={section.contents}
         />
       ))}
+
+      {/* Privacy policy contact info component. */}
+      <PolicyContact
+        title="개인정보 보호 문의"
+        titleIcon={<AdminPanelSettingsIcon sx={{ fontSize: 28 }} />}
+        nameLabel="개인정보 보호 책임자 :"
+      />
     </PolicyLayout>
   );
 }

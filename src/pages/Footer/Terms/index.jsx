@@ -1,5 +1,7 @@
+import BusinessIcon from '@mui/icons-material/Business';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
+import PolicyContact from '../../../components/Common/Footer/PolicyContact';
 import PolicyContent from '../../../components/Common/Footer/PolicyContent';
 import PolicyDescription from '../../../components/Common/Footer/PolicyDescription';
 import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
@@ -16,6 +18,7 @@ function Terms() {
       titleIcon={<LibraryBooksIcon color="primary" />}
       lastUpdated={lastUpdated}
     >
+      {/* Terms of service description component. */}
       <PolicyDescription
         title={title}
         // TODO: 내용 변경 필요
@@ -38,6 +41,13 @@ function Terms() {
           contents={section.contents}
         />
       ))}
+
+      {/* Terms of service contact info component. */}
+      <PolicyContact
+        title="서비스 제공자 정보"
+        titleIcon={<BusinessIcon sx={{ fontSize: 28 }} />}
+        nameLabel="서비스 제공자 :"
+      />
     </PolicyLayout>
   );
 }

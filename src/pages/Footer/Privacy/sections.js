@@ -5,7 +5,7 @@ import StorageIcon from '@mui/icons-material/Storage';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
-// TODO: 내용 변경 필요
+// TODO: 내용 & 아이콘 변경 필요
 export const sections = [
   {
     title: '1. 수집하는 개인정보 항목',
