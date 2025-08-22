@@ -1,7 +1,10 @@
 import SecurityIcon from '@mui/icons-material/Security';
 
+import PolicyContent from '../../../components/Common/Footer/PolicyContent';
 import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
 import PolicyTopCard from '../../../components/Common/Footer/PolicyTopCard';
+
+import { sections } from './sections';
 
 function Privacy() {
   const title = '개인정보 처리방침';
@@ -23,6 +26,16 @@ function Privacy() {
           </span>
         }
       />
+
+      {/* Iterate pre-defined sections and show policy contents. */}
+      {sections.map((section, index) => (
+        <PolicyContent
+          key={index}
+          title={section.title}
+          titleIcon={section.icon}
+          contents={section.contents}
+        />
+      ))}
     </PolicyLayout>
   );
 }
