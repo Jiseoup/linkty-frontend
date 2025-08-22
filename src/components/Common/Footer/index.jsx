@@ -35,13 +35,11 @@ function Footer() {
 
   // Privacy button click handler.
   const onPrivacyClick = () => {
-    // TODO: Privacy 페이지 구현 필요
     navigate('/privacy');
   };
 
   // Terms button click handler.
   const onTermsClick = () => {
-    // TODO: Terms 페이지 구현 필요
     navigate('/terms');
   };
 

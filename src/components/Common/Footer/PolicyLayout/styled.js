@@ -24,12 +24,12 @@ export const HeaderText = styled(Typography)(({ theme }) => ({
 
 export const BodyContent = styled(Container)(({ theme }) => ({
   paddingTop: theme.spacing(4),
-  paddingBottom: theme.spacing(4), // TODO: 조정 필요할 수도 있음
+  paddingBottom: theme.spacing(4),
 }));
 
 export const Footer = styled(Box)(({ theme }) => ({
   textAlign: 'center',
-  paddingBottom: theme.spacing(4), // TODO: 조정 필요할 수도 있음
+  paddingBottom: theme.spacing(4),
 }));
 
 export const FooterText = styled(Typography)(({ theme }) => ({

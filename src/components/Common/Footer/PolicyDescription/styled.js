@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 export const DescriptionCard = styled(Card)(({ theme }) => ({
   borderRadius: theme.spacing(1),
   padding: theme.spacing(4),
-  marginBottom: theme.spacing(4), // TODO: 조정 필요할 수도 있음
+  marginBottom: theme.spacing(4),
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
 }));
 

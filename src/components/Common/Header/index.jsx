@@ -51,7 +51,7 @@ function Header() {
 
   // My Page button click handler.
   const onMyPageClick = () => {
-    // TODO: Dialog 띄우기
+    // TODO: 페이지 navigate 필요
   };
 
   return (
