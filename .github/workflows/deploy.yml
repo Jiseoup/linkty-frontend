@@ -24,6 +24,7 @@ jobs:
         run: |
           echo "REACT_APP_BASE_URL=${{ secrets.REACT_APP_BASE_URL }}" > .env
           echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" >> .env
+          echo "REACT_APP_SUPPORT_EMAIL=${{ secrets.REACT_APP_SUPPORT_EMAIL }}" >> .env
           echo "REACT_APP_GOOGLE_CAPTCHA_SITE_KEY=${{ secrets.REACT_APP_GOOGLE_CAPTCHA_SITE_KEY }}" >> .env
 
       - name: Build project
