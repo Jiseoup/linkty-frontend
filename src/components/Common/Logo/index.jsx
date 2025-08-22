@@ -17,7 +17,7 @@ function Logo() {
 
   return (
     <LogoWrapper onClick={onLogoClick}>
-      <img src="/title_logo.png" alt="Linkty Logo" style={{ height: 32 }} />
+      <img src="/title_logo.png" alt="Linkty Logo" style={{ height: 36 }} />
     </LogoWrapper>
   );
 }

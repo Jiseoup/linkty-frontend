@@ -3,9 +3,9 @@ import { styled } from '@mui/material/styles';
 
 export const HeaderWrapper = styled(Box)(({ theme }) => ({
   width: '100%',
-  height: 64,
+  height: 68,
   boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.2)',
-  backgroundColor: '#ffffff',
+  backgroundColor: theme.palette.grey[50],
   position: 'sticky',
   top: 0,
   zIndex: 100,
