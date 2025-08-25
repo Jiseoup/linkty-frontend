@@ -1,50 +1,60 @@
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import DescriptionIcon from '@mui/icons-material/Description';
+import LockIcon from '@mui/icons-material/Lock';
 import SecurityIcon from '@mui/icons-material/Security';
+import StorageIcon from '@mui/icons-material/Storage';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 import PolicyContact from '../../../components/Common/Footer/PolicyContact';
 import PolicyContent from '../../../components/Common/Footer/PolicyContent';
 import PolicyDescription from '../../../components/Common/Footer/PolicyDescription';
 import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
+import {
+  TITLE,
+  LAST_UPDATED,
+  DESCRIPTION,
+  SECTIONS,
+  CONTACT_TITLE,
+  CONTACT_LABEL,
+} from '../../../constants/Footer/Privacy';
 
-import { sections } from './sections';
+// Section contents icon mapper.
+const ICON_MAP = {
+  0: <StorageIcon />,
+  1: <DescriptionIcon />,
+  2: <AccessTimeIcon />,
+  3: <LockIcon />,
+  4: <WarningAmberIcon />,
+  5: <VerifiedUserIcon />,
+};
 
 function Privacy() {
-  const title = '개인정보 처리방침';
-  const lastUpdated = '2025년 09월 01일'; // TODO: 날짜 수정 필요함
-
   return (
     <PolicyLayout
-      title={title}
+      title={TITLE}
       titleIcon={<SecurityIcon color="primary" />}
-      lastUpdated={lastUpdated}
+      lastUpdated={LAST_UPDATED}
     >
       {/* Privacy policy description component. */}
-      <PolicyDescription
-        title={title}
-        description={
-          <span>
-            <strong>Linkty</strong>는「개인정보보호법」제30조에 따라 정보주체의
-            개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수
-            있도록 하기 위하여 다음과 같이 {title}을 수립·공개합니다.
-          </span>
-        }
-      />
+      <PolicyDescription title={TITLE} description={DESCRIPTION} />
 
       {/* Iterate pre-defined sections and show policy contents. */}
-      {sections.map((section, index) => (
+      {SECTIONS.map((section, index) => (
         <PolicyContent
           key={index}
           title={section.title}
-          titleIcon={section.icon}
+          titleIcon={ICON_MAP[index]}
           contents={section.contents}
         />
       ))}
 
       {/* Privacy policy contact info component. */}
       <PolicyContact
-        title="개인정보 보호 문의"
+        title={CONTACT_TITLE}
         titleIcon={<AdminPanelSettingsIcon sx={{ fontSize: 28 }} />}
-        nameLabel="개인정보 보호 책임자 :"
+        nameLabel={CONTACT_LABEL}
       />
     </PolicyLayout>
   );

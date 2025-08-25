@@ -1,52 +1,72 @@
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ArticleIcon from '@mui/icons-material/Article';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import BlockIcon from '@mui/icons-material/Block';
 import BusinessIcon from '@mui/icons-material/Business';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CopyrightIcon from '@mui/icons-material/Copyright';
+import GavelIcon from '@mui/icons-material/Gavel';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import PaymentIcon from '@mui/icons-material/Payment';
+import SecurityIcon from '@mui/icons-material/Security';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 import PolicyContact from '../../../components/Common/Footer/PolicyContact';
 import PolicyContent from '../../../components/Common/Footer/PolicyContent';
 import PolicyDescription from '../../../components/Common/Footer/PolicyDescription';
 import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
+import {
+  TITLE,
+  LAST_UPDATED,
+  DESCRIPTION,
+  SECTIONS,
+  CONTACT_TITLE,
+  CONTACT_LABEL,
+} from '../../../constants/Footer/Terms';
 
-import { sections } from './sections';
+// Section contents icon mapper.
+const ICON_MAP = {
+  0: <ArticleIcon />,
+  1: <AssignmentIcon />,
+  2: <GavelIcon />,
+  3: <AccountCircleIcon />,
+  4: <ShoppingBagIcon />,
+  5: <BlockIcon />,
+  6: <CancelIcon />,
+  7: <VerifiedUserIcon />,
+  8: <CopyrightIcon />,
+  9: <SecurityIcon />,
+  10: <PaymentIcon />,
+  11: <WarningAmberIcon />,
+};
 
 function Terms() {
-  const title = '서비스 이용약관';
-  const lastUpdated = '2025년 09월 01일'; // TODO: 날짜 수정 필요함
-
   return (
     <PolicyLayout
-      title={title}
+      title={TITLE}
       titleIcon={<LibraryBooksIcon color="primary" />}
-      lastUpdated={lastUpdated}
+      lastUpdated={LAST_UPDATED}
     >
       {/* Terms of service description component. */}
-      <PolicyDescription
-        title={title}
-        // TODO: 내용 변경 필요
-        description={
-          <span>
-            <strong>Linkty</strong> 서비스를 이용해 주셔서 감사합니다. 본 약관은
-            Linkty 서비스 제공 및 이용과 관련하여 회사와 회원 간의 권리, 의무 및
-            책임사항을 규정합니다. 서비스를 이용하시기 전에 본 약관을 주의 깊게
-            읽어보시기 바랍니다.
-          </span>
-        }
-      />
+      <PolicyDescription title={TITLE} description={DESCRIPTION} />
 
       {/* Iterate pre-defined sections and show policy contents. */}
-      {sections.map((section, index) => (
+      {SECTIONS.map((section, index) => (
         <PolicyContent
           key={index}
           title={section.title}
-          titleIcon={section.icon}
+          titleIcon={ICON_MAP[index]}
           contents={section.contents}
         />
       ))}
 
       {/* Terms of service contact info component. */}
       <PolicyContact
-        title="서비스 제공자 정보"
+        title={CONTACT_TITLE}
         titleIcon={<BusinessIcon sx={{ fontSize: 28 }} />}
-        nameLabel="서비스 제공자 :"
+        nameLabel={CONTACT_LABEL}
       />
     </PolicyLayout>
   );

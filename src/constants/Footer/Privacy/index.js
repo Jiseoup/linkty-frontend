@@ -1,15 +1,21 @@
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import DescriptionIcon from '@mui/icons-material/Description';
-import LockIcon from '@mui/icons-material/Lock';
-import StorageIcon from '@mui/icons-material/Storage';
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
+// Privacy policy basic informations.
+export const TITLE = '개인정보 처리방침';
+export const LAST_UPDATED = '2025년 09월 01일'; // TODO: 날짜 수정 필요함
+
+// Privacy policy description.
+export const DESCRIPTION = `Linkty는「개인정보보호법」제30조에 따라 정보주체의 개인정보를
+            보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기
+            위하여 다음과 같이 ${TITLE}을 수립·공개합니다.`;
+
+// Privacy policy contact informations.
+export const CONTACT_TITLE = '개인정보 보호 문의';
+export const CONTACT_LABEL = '개인정보 보호 책임자 :';
 
 // TODO: 내용 & 아이콘 변경 필요
-export const sections = [
+// Privacy policy main sections.
+export const SECTIONS = [
   {
     title: '1. 수집하는 개인정보 항목',
-    icon: <StorageIcon />,
     contents: [
       {
         title: '필수 항목',
@@ -31,7 +37,6 @@ export const sections = [
   },
   {
     title: '2. 개인정보의 수집 및 이용 목적',
-    icon: <DescriptionIcon />,
     contents: [
       {
         title: '회원 관리',
@@ -61,7 +66,6 @@ export const sections = [
   },
   {
     title: '3. 개인정보의 보유 및 이용 기간',
-    icon: <AccessTimeIcon />,
     contents: [
       {
         title: '회원 정보',
@@ -83,7 +87,6 @@ export const sections = [
   },
   {
     title: '4. 개인정보의 안전성 확보조치',
-    icon: <LockIcon />,
     contents: [
       {
         title: '기술적 조치',
@@ -106,7 +109,6 @@ export const sections = [
   },
   {
     title: '5. 개인정보의 파기 절차 및 방법',
-    icon: <WarningAmberIcon />,
     contents: [
       {
         title: '파기절차',
@@ -125,7 +127,6 @@ export const sections = [
   },
   {
     title: '6. 이용자의 권리와 행사 방법',
-    icon: <VerifiedUserIcon />,
     contents: [
       {
         title: '이용자의 권리',
