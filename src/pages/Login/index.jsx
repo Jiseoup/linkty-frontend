@@ -22,16 +22,18 @@ function Login() {
 
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [rememberMe, setRememberMe] = useState(false);
 
   const onEmailChange = (e) => setEmail(e.target.value);
   const onPasswordChange = (e) => setPassword(e.target.value);
+  const onRememberMeChange = (e) => setRememberMe(e.target.checked);
 
   // Login Button Click Handler.
   const onLoginButtonClick = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await postLogin({ email, password });
+      const response = await postLogin({ email, password, rememberMe });
       setAccessToken(response.accessToken);
       toastSuccess({ message: '환영합니다! 성공적으로 로그인되었습니다.' });
       navigate('/');
@@ -57,9 +59,11 @@ function Login() {
             onPasswordChange={onPasswordChange}
           />
 
-          {/* TODO: 추후 로그인 옵션 기능 구현 필요 */}
           {/* Login Options Component. */}
-          <LoginOptions />
+          <LoginOptions
+            rememberMe={rememberMe}
+            onRememberMeChange={onRememberMeChange}
+          />
 
           {/* Login Button Component. */}
           <Button

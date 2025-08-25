@@ -13,10 +13,11 @@ export const postRegister = async ({ email, password, captchaToken }) => {
 };
 
 // [POST] User login.
-export const postLogin = async ({ email, password }) => {
+export const postLogin = async ({ email, password, rememberMe }) => {
   const response = await axiosInstance.post(`${BASE_URL}/login`, {
     email,
     password,
+    rememberMe,
   });
   return response.data;
 };
