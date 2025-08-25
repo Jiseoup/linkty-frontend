@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/Common/Button';
 import Card from '../../components/Common/Card';
+import CardHeader from '../../components/Common/CardHeader';
 import FormBox from '../../components/Common/FormBox';
 import Captcha from '../../components/Register/Captcha';
 import EmailForm from '../../components/Register/EmailForm';
@@ -127,48 +128,56 @@ function Register() {
   };
 
   return (
-    <>
-      <Card>
-        <FormBox onSubmit={onRegisterButtonClick}>
-          <h2 style={{ marginBottom: '0px' }}>회원가입</h2>
+    <Card>
+      {/* Register Card Header Component. */}
+      <CardHeader
+        title="회원가입"
+        // TODO: 메시지 변경 필요
+        message={
+          <>
+            Linkty에 오신것을 환영합니다!🎉
+            <br />
+            지금 계정을 만들고 Linkty의 다양한 서비스를 무료로 이용해보세요!
+          </>
+        }
+      />
 
-          <p style={{ marginBottom: '36px' }}>Linkty에 오신것을 환영합니다!</p>
+      <FormBox onSubmit={onRegisterButtonClick}>
+        {/* Email Form Component. */}
+        <EmailForm
+          email={email}
+          code={code}
+          onEmailChange={onEmailChange}
+          onCodeChange={onCodeChange}
+          isEmailSent={isEmailSent}
+          isCodeConfirmed={isCodeConfirmed}
+          onVerifyButtonClick={onVerifyButtonClick}
+          onConfirmButtonClick={onConfirmButtonClick}
+        />
 
-          {/* Email Form Component. */}
-          <EmailForm
-            email={email}
-            code={code}
-            onEmailChange={onEmailChange}
-            onCodeChange={onCodeChange}
-            isEmailSent={isEmailSent}
-            isCodeConfirmed={isCodeConfirmed}
-            onVerifyButtonClick={onVerifyButtonClick}
-            onConfirmButtonClick={onConfirmButtonClick}
-          />
+        {/* Password Form Component. */}
+        <PasswordForm
+          password={password}
+          passwordConfirm={passwordConfirm}
+          onPasswordChange={onPasswordChange}
+          onPasswordConfirmChange={onPasswordConfirmChange}
+        />
 
-          {/* Password Form Component. */}
-          <PasswordForm
-            password={password}
-            passwordConfirm={passwordConfirm}
-            onPasswordChange={onPasswordChange}
-            onPasswordConfirmChange={onPasswordConfirmChange}
-          />
+        {/* TODO: Captcha 위치 왼쪽 또는 가운데 고민 */}
+        {/* Captcha Component. */}
+        <Captcha setCaptchaValue={setCaptchaValue} />
 
-          {/* Captcha Component. */}
-          <Captcha setCaptchaValue={setCaptchaValue} />
-
-          {/* Register Button Component. */}
-          <Button
-            text="회원가입"
-            type="submit"
-            variant="contained"
-            color="secondary"
-            fullWidth
-            sx={{ height: '44px', fontSize: '16px' }}
-          />
-        </FormBox>
-      </Card>
-    </>
+        {/* Register Button Component. */}
+        <Button
+          text="회원가입"
+          type="submit"
+          variant="contained"
+          color="secondary"
+          fullWidth
+          sx={{ height: '44px', fontSize: '16px' }}
+        />
+      </FormBox>
+    </Card>
   );
 }
 

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/Common/Button';
 import Card from '../../components/Common/Card';
+import CardHeader from '../../components/Common/CardHeader';
 import FormBox from '../../components/Common/FormBox';
 import LoginForm from '../../components/Login/LoginForm';
 import LoginOptions from '../../components/Login/LoginOptions';
@@ -46,37 +47,40 @@ function Login() {
   };
 
   return (
-    <>
-      <Card>
-        <FormBox onSubmit={onLoginButtonClick}>
-          <h2 style={{ marginBottom: '36px' }}>로그인</h2>
+    <Card>
+      {/* Login Card Header Component. */}
+      <CardHeader
+        title="로그인"
+        // TODO: 메시지 변경 필요
+        message="계정에 로그인하여 더 많은 기능을 이용해보세요."
+      />
 
-          {/* Login Form Component. */}
-          <LoginForm
-            email={email}
-            password={password}
-            onEmailChange={onEmailChange}
-            onPasswordChange={onPasswordChange}
-          />
+      <FormBox onSubmit={onLoginButtonClick}>
+        {/* Login Form Component. */}
+        <LoginForm
+          email={email}
+          password={password}
+          onEmailChange={onEmailChange}
+          onPasswordChange={onPasswordChange}
+        />
 
-          {/* Login Options Component. */}
-          <LoginOptions
-            rememberMe={rememberMe}
-            onRememberMeChange={onRememberMeChange}
-          />
+        {/* Login Options Component. */}
+        <LoginOptions
+          rememberMe={rememberMe}
+          onRememberMeChange={onRememberMeChange}
+        />
 
-          {/* Login Button Component. */}
-          <Button
-            text="로그인"
-            type="submit"
-            variant="contained"
-            color="secondary"
-            fullWidth
-            sx={{ height: '44px', fontSize: '16px' }}
-          />
-        </FormBox>
-      </Card>
-    </>
+        {/* Login Button Component. */}
+        <Button
+          text="로그인"
+          type="submit"
+          variant="contained"
+          color="secondary"
+          fullWidth
+          sx={{ height: '44px', fontSize: '16px' }}
+        />
+      </FormBox>
+    </Card>
   );
 }
 

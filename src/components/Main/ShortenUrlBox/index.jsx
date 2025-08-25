@@ -138,6 +138,7 @@ function ShortenUrlBox({
           <>
             {/* Bottom register promotion contents. */}
             <RegisterBox>
+              {/* TODO: 메시지 변경 필요할 수도 있음 */}
               <RegisterText>
                 🎯 <strong>회원가입 후</strong> URL 별칭, 활성일/만료일 설정,
                 통계 확인 등 다양한 기능을 <strong>무료로</strong> 이용해보세요!
