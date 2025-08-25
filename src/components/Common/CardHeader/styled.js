@@ -38,6 +38,7 @@ export const MessageBox = styled(Box)(({ theme }) => ({
   padding: theme.spacing(1, 2),
 }));
 
+// TODO: Message fontSize 16 18 20 고민, fontWeight 400, 500 등 고민
 export const Message = styled(Typography)(({ theme }) => ({
   flex: 1,
   fontSize: 16,
