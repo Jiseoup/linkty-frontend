@@ -9,8 +9,11 @@ export const ERROR_MESSAGES = {
     '알 수 없는 오류가 발생했습니다.\n새로고침 후 다시 시도해 주세요.',
 
   // Common Error Messages.
+  [ERROR_CODES.INVALID_REQUEST]:
+    '잘못된 요청입니다.\n새로고침 후 다시 시도해 주세요.',
   [ERROR_CODES.INVALID_TOKEN]:
     '유효하지 않은 토큰입니다.\n새로고침 후 다시 시도해 주세요.',
+  [ERROR_CODES.USER_NOT_FOUND]: '존재하지 않는 사용자입니다.',
   [ERROR_CODES.EMAIL_CONFLICTED]: '이미 사용 중인 이메일입니다.',
 
   // Url Service Error Messages.
@@ -24,7 +27,6 @@ export const ERROR_MESSAGES = {
     '고급 설정은 로그인 후 이용 가능합니다.',
 
   // User Service Error Messages.
-  [ERROR_CODES.USER_NOT_FOUND]: '존재하지 않는 사용자입니다.',
   [ERROR_CODES.INVALID_EMAIL_OR_PASSWORD]:
     '이메일 또는 비밀번호가 올바르지 않습니다.',
   [ERROR_CODES.INVALID_PASSWORD]: '비밀번호가 일치하지 않습니다.',
