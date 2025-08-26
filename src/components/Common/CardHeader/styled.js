@@ -15,6 +15,7 @@ export const TitleBox = styled(Box)(({ theme }) => ({
   flexDirection: 'row',
   alignItems: 'center',
   gap: theme.spacing(2),
+  marginLeft: theme.spacing(1),
 }));
 
 export const TitleLogo = styled('img')({
@@ -27,7 +28,6 @@ export const TitleText = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-// TODO: MessageBox 컴포넌트 사용할지 고민중... 사용할 경우 Gap이나 MB 조정 필요할수도
 export const MessageBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   boxSizing: 'border-box',
@@ -36,9 +36,9 @@ export const MessageBox = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[200]}`,
   borderRadius: theme.spacing(1),
   padding: theme.spacing(1, 2),
+  marginTop: theme.spacing(1),
 }));
 
-// TODO: Message fontSize 16 18 20 고민, fontWeight 400, 500 등 고민
 export const Message = styled(Typography)(({ theme }) => ({
   flex: 1,
   fontSize: 16,
