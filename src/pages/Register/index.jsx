@@ -9,7 +9,6 @@ import FormBox from '../../components/Common/FormBox';
 import Captcha from '../../components/Register/Captcha';
 import EmailForm from '../../components/Register/EmailForm';
 import PasswordForm from '../../components/Register/PasswordForm';
-import { EMAIL_PURPOSE } from '../../constants/Email';
 import { useAlertContext } from '../../contexts/AlertContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
 import {
@@ -40,7 +39,7 @@ function Register() {
   // Send Verification Code Button Click Handler.
   const onVerifyButtonClick = async () => {
     try {
-      await postVerification({ email, purpose: EMAIL_PURPOSE.REGISTER });
+      await postVerification({ email });
       setIsEmailSent(true);
       alertSuccess({
         title: '인증번호가 발송되었습니다.',
@@ -59,11 +58,7 @@ function Register() {
   // Confirm Verification Code Button Click Handler.
   const onConfirmButtonClick = async () => {
     try {
-      await postVerificationConfirm({
-        email,
-        code,
-        purpose: EMAIL_PURPOSE.REGISTER,
-      });
+      await postVerificationConfirm({ email, code });
       setIsCodeConfirmed(true);
       alertSuccess({
         title: '이메일 인증이 완료되었습니다.',

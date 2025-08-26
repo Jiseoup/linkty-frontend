@@ -1,4 +1,0 @@
-export const EMAIL_PURPOSE = {
-  REGISTER: 'REGISTER',
-  FIND_PASSWORD: 'FIND_PASSWORD',
-};
