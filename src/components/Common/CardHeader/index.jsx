@@ -18,9 +18,11 @@ function CardHeader({ title, message }) {
       </TitleBox>
 
       {/* Message contents. */}
-      <MessageBox>
-        <Message>{message}</Message>
-      </MessageBox>
+      {message && (
+        <MessageBox>
+          <Message>{message}</Message>
+        </MessageBox>
+      )}
     </Container>
   );
 }
