@@ -21,3 +21,11 @@ export const postVerificationConfirm = async ({ email, code }) => {
   );
   return response.data;
 };
+
+// [POST] Send reset password email.
+export const postResetPassword = async ({ email }) => {
+  const response = await axiosInstance.post(`${BASE_URL}/reset-password`, {
+    email,
+  });
+  return response.data;
+};
