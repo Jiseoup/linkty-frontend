@@ -49,11 +49,7 @@ function Login() {
   return (
     <Card>
       {/* Login Card Header Component. */}
-      <CardHeader
-        title="로그인"
-        // TODO: 메시지 변경 필요
-        message="계정에 로그인하여 더 많은 기능을 이용해보세요."
-      />
+      <CardHeader title="로그인" />
 
       <FormBox onSubmit={onLoginButtonClick}>
         {/* Login Form Component. */}

@@ -127,12 +127,12 @@ function Register() {
       {/* Register Card Header Component. */}
       <CardHeader
         title="회원가입"
-        // TODO: 메시지 변경 필요
+        // TODO: 메시지 변경 필요할수도
         message={
           <>
-            Linkty에 오신것을 환영합니다!🎉
+            Linkty에 오신 것을 진심으로 환영합니다.
             <br />
-            지금 계정을 만들고 Linkty의 다양한 서비스를 무료로 이용해보세요!
+            지금 회원가입하고, Linkty의 다양한 기능을 무료로 이용해보세요.
           </>
         }
       />
@@ -158,7 +158,6 @@ function Register() {
           onPasswordConfirmChange={onPasswordConfirmChange}
         />
 
-        {/* TODO: Captcha 위치 왼쪽 또는 가운데 고민 */}
         {/* Captcha Component. */}
         <Captcha setCaptchaValue={setCaptchaValue} />
 
