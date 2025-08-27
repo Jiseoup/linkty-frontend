@@ -7,8 +7,9 @@ export const fieldName = (field) => {
     alias: 'URL 별칭',
     activeDate: 'URL 활성일',
     expireDate: 'URL 만료일',
-    refreshToken: 'Refresh Token',
-    captchaToken: 'Captcha Token',
+    token: '토큰',
+    refreshToken: 'Refresh 토큰',
+    captchaToken: 'Captcha 토큰',
   };
 
   return map[field] || field;

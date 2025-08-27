@@ -6,13 +6,13 @@ import Button from '../../components/Common/Button';
 import Card from '../../components/Common/Card';
 import CardHeader from '../../components/Common/CardHeader';
 import FormBox from '../../components/Common/FormBox';
+import PasswordForm from '../../components/Common/PasswordForm';
 import Captcha from '../../components/Register/Captcha';
 import EmailForm from '../../components/Register/EmailForm';
-import PasswordForm from '../../components/Register/PasswordForm';
 import { useAlertContext } from '../../contexts/AlertContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
 import {
-  postVerification,
+  postVerificationEmail,
   postVerificationConfirm,
 } from '../../services/email';
 import { postRegister } from '../../services/user';
@@ -39,7 +39,7 @@ function Register() {
   // Send Verification Code Button Click Handler.
   const onVerifyButtonClick = async () => {
     try {
-      await postVerification({ email });
+      await postVerificationEmail({ email });
       setIsEmailSent(true);
       alertSuccess({
         title: '인증번호가 발송되었습니다.',
@@ -85,8 +85,8 @@ function Register() {
       return;
     }
 
-    // Check if password and passwordConfirm are the same.
-    if (password !== passwordConfirm) {
+    // Check if password and passwordConfirm exist, and validate that they match.
+    if (!password || !passwordConfirm || password !== passwordConfirm) {
       alertError({
         title: '비밀번호가 일치하지 않습니다.',
         message: '비밀번호를 다시 확인해 주세요.',
@@ -153,7 +153,11 @@ function Register() {
         {/* Password Form Component. */}
         <PasswordForm
           password={password}
+          passwordLabel="비밀번호"
+          passwordPlaceholder="비밀번호를 입력해주세요."
           passwordConfirm={passwordConfirm}
+          passwordConfirmLabel="비밀번호 확인"
+          passwordConfirmPlaceholder="비밀번호를 한 번 더 입력해주세요."
           onPasswordChange={onPasswordChange}
           onPasswordConfirmChange={onPasswordConfirmChange}
         />

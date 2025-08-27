@@ -8,13 +8,12 @@ function LoginForm({ email, password, onEmailChange, onPasswordChange }) {
       {/* Email Input TextField. */}
       <RowBox>
         <TextField
-          type="email"
+          type="text"
           name="email"
           label="이메일"
           placeholder="이메일을 입력해주세요."
           value={email}
           onChange={onEmailChange}
-          required
           autoFocus
         />
       </RowBox>
@@ -28,7 +27,6 @@ function LoginForm({ email, password, onEmailChange, onPasswordChange }) {
           placeholder="비밀번호를 입력해주세요."
           value={password}
           onChange={onPasswordChange}
-          required
         />
       </RowBox>
     </>

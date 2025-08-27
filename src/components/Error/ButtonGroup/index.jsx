@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { StyledRowBox, StyledButton } from './styled';
 
 // Error Page Navigate Buttons Component.
-function ButtonGroup() {
+function ButtonGroup({ customText, customOnClick }) {
   const navigate = useNavigate();
 
   // Go home button click handler.
@@ -27,9 +27,9 @@ function ButtonGroup() {
 
       {/* Go Back Button Component. */}
       <StyledButton
-        text="이전 페이지로"
+        text={customText ? customText : '이전 페이지로'}
         variant="outlined"
-        onClick={onGoBackClick}
+        onClick={customOnClick ? customOnClick : onGoBackClick}
       />
     </StyledRowBox>
   );

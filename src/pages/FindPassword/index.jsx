@@ -10,7 +10,7 @@ import RowBox from '../../components/Common/RowBox';
 import TextField from '../../components/Common/TextField';
 import { useAlertContext } from '../../contexts/AlertContext';
 import { parseErrorMessage } from '../../exceptions/errorParser';
-import { postResetPassword } from '../../services/email';
+import { postResetPasswordEmail } from '../../services/email';
 
 function FindPassword() {
   const navigate = useNavigate();
@@ -26,14 +26,14 @@ function FindPassword() {
     e.preventDefault();
 
     try {
-      await postResetPassword({ email });
+      await postResetPasswordEmail({ email });
       alertSuccess({
         title: '비밀번호 재설정 링크가 발송되었습니다.',
         message:
           `${email} 메일함을 확인해주세요.` +
           '\n메일이 오지 않으면 스팸함을 확인하거나, 재발송을 시도해 주세요.',
+        onClose: () => navigate('/login'),
       });
-      navigate('/login');
     } catch (error) {
       alertError({
         title: '비밀번호 재설정 링크 발송에 실패했습니다.',
@@ -60,13 +60,12 @@ function FindPassword() {
         {/* Email Input TextField. */}
         <RowBox>
           <TextField
-            type="email"
+            type="text"
             name="email"
             label="이메일"
             placeholder="가입하신 이메일 주소를 입력해주세요."
             value={email}
             onChange={onEmailChange}
-            required
             autoFocus
           />
         </RowBox>

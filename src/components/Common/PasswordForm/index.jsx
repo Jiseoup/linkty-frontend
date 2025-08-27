@@ -1,13 +1,17 @@
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 
-import RowBox from '../../Common/RowBox';
-import TextField from '../../Common/TextField';
+import RowBox from '../RowBox';
+import TextField from '../TextField';
 
 // Component for password input and validation.
 function PasswordForm({
   password,
+  passwordLabel,
+  passwordPlaceholder,
   passwordConfirm,
+  passwordConfirmLabel,
+  passwordConfirmPlaceholder,
   onPasswordChange,
   onPasswordConfirmChange,
 }) {
@@ -24,11 +28,10 @@ function PasswordForm({
         <TextField
           type="password"
           name="password"
-          label="비밀번호"
-          placeholder="비밀번호를 입력해주세요."
+          label={passwordLabel}
+          placeholder={passwordPlaceholder}
           value={password}
           onChange={onPasswordChange}
-          required
           error={password && !isValidPassword}
           helperText={
             !password
@@ -50,11 +53,10 @@ function PasswordForm({
         <TextField
           type="password"
           name="passwordConfirm"
-          label="비밀번호 확인"
-          placeholder="비밀번호를 한 번 더 입력해주세요."
+          label={passwordConfirmLabel}
+          placeholder={passwordConfirmPlaceholder}
           value={passwordConfirm}
           onChange={onPasswordConfirmChange}
-          required
           error={!passwordMatch && showPasswordMatchMessage}
           helperText={
             !passwordConfirm

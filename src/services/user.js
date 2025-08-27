@@ -33,3 +33,20 @@ export const postRefreshToken = async () => {
   const response = await axiosInstance.post(`${BASE_URL}/refresh-token`);
   return response.data;
 };
+
+// [GET] Validate Reset Password Token.
+export const getValidateResetPassword = async ({ token }) => {
+  const response = await axiosInstance.get(`${BASE_URL}/reset-password`, {
+    params: { token },
+  });
+  return response.data;
+};
+
+// [POST] Reset Password.
+export const postResetPassword = async ({ token, password }) => {
+  const response = await axiosInstance.post(`${BASE_URL}/reset-password`, {
+    token,
+    password,
+  });
+  return response.data;
+};

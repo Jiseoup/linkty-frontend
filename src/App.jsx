@@ -5,8 +5,8 @@ import { AccessTokenProvider } from './contexts/AccessTokenContext';
 import { AlertProvider } from './contexts/AlertContext';
 import { LoadingProvider } from './contexts/LoadingContext';
 import { ToastProvider } from './contexts/ToastContext';
-import ErrorLayout from './layouts/ErrorLayout';
 import ServiceLayout from './layouts/ServiceLayout';
+import StandaloneLayout from './layouts/StandaloneLayout';
 import Error from './pages/Error';
 import FindPassword from './pages/FindPassword';
 import Privacy from './pages/Footer/Privacy';
@@ -14,6 +14,7 @@ import Terms from './pages/Footer/Terms';
 import Login from './pages/Login';
 import Main from './pages/Main';
 import Register from './pages/Register';
+import ResetPassword from './pages/ResetPassword';
 import theme from './theme';
 
 // TODO: URL 6자리로 끝나지 않도록 주의!
@@ -28,17 +29,26 @@ function App() {
                 <Routes>
                   {/* Service pages layout. */}
                   <Route element={<ServiceLayout />}>
+                    {/* Main service pages. */}
                     <Route path="/" element={<Main />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/find-password" element={<FindPassword />} />
+
                     {/* Footer pages. */}
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
                   </Route>
 
-                  {/* Error pages layout. */}
-                  <Route element={<ErrorLayout />}>
+                  {/* Standalone pages layout. */}
+                  <Route element={<StandaloneLayout />}>
+                    {/* Reset Password pages. */}
+                    <Route
+                      path="/reset-password/:token"
+                      element={<ResetPassword />}
+                    />
+
+                    {/* Error pages. */}
                     <Route path="*" element={<Error />} />
                   </Route>
                 </Routes>

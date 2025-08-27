@@ -4,7 +4,7 @@ import BackgroundWrapper from '../../components/Common/BackgroundWrapper';
 import PageLayout from '../../components/Common/PageLayout';
 import ScrollToTop from '../../components/Common/ScrollToTop';
 
-function ErrorLayout() {
+function StandaloneLayout() {
   return (
     <PageLayout>
       <ScrollToTop />
@@ -15,4 +15,4 @@ function ErrorLayout() {
   );
 }
 
-export default ErrorLayout;
+export default StandaloneLayout;

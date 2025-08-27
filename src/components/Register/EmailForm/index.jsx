@@ -19,13 +19,12 @@ function EmailForm({
       <RowBox>
         {/* Email Input TextField. */}
         <TextField
-          type="email"
+          type="text"
           name="email"
           label="이메일"
           placeholder="이메일을 입력해주세요."
           value={email}
           onChange={onEmailChange}
-          required
           disabled={isEmailSent || isCodeConfirmed}
         />
 
@@ -47,7 +46,6 @@ function EmailForm({
           placeholder="인증번호 6자리를 입력해주세요."
           value={code}
           onChange={onCodeChange}
-          required
           disabled={!isEmailSent || isCodeConfirmed}
         />
 

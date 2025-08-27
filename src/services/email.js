@@ -3,7 +3,7 @@ import axiosInstance from './axiosInstance';
 const BASE_URL = '/email';
 
 // [POST] Send verification email.
-export const postVerification = async ({ email }) => {
+export const postVerificationEmail = async ({ email }) => {
   const response = await axiosInstance.post(`${BASE_URL}/verification`, {
     email,
   });
@@ -23,7 +23,7 @@ export const postVerificationConfirm = async ({ email, code }) => {
 };
 
 // [POST] Send reset password email.
-export const postResetPassword = async ({ email }) => {
+export const postResetPasswordEmail = async ({ email }) => {
   const response = await axiosInstance.post(`${BASE_URL}/reset-password`, {
     email,
   });
