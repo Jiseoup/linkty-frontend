@@ -47,6 +47,16 @@ const theme = createTheme({
       background: '#1F1F1F',
     },
   },
+  gradient: {
+    primary: {
+      background: '#6A82FB 0%, #FC5C7D 100%',
+      contrastText: '#FFFFFF',
+    },
+    secondary: {
+      background: '#6366F1 0%, #4F46E5 100%',
+      contrastText: '#FFFFFF',
+    },
+  },
 });
 
 export default theme;

@@ -100,9 +100,9 @@ export const EmailText = styled(Typography)({
 export const EmailAddress = styled(Box)(({ theme }) => ({
   fontSize: 18,
   fontWeight: 600,
-  color: theme.palette.primary.contrastText,
+  color: theme.gradient.secondary.contrastText,
   borderRadius: theme.spacing(0.5),
-  background: `linear-gradient(135deg, #6366F1 0%, #4F46E5 100%)`,
+  background: `linear-gradient(135deg, ${theme.gradient.secondary.background})`,
   padding: theme.spacing(1.5),
 }));
 
