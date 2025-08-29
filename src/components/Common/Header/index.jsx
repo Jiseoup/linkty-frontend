@@ -51,7 +51,7 @@ function Header() {
 
   // My Page button click handler.
   const onMyPageClick = () => {
-    // TODO: 페이지 navigate 필요
+    navigate('/mypage');
   };
 
   return (
