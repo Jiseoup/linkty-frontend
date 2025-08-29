@@ -57,6 +57,11 @@ const theme = createTheme({
       contrastText: '#FFFFFF',
     },
   },
+  layout: {
+    main: {
+      height: '100vh',
+    },
+  },
 });
 
 export default theme;
