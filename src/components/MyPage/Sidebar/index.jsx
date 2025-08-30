@@ -27,6 +27,7 @@ const ICON_MAP = {
   3: <SettingsIcon />,
 };
 
+// My Page Sidebar Component.
 function Sidebar() {
   const { pathname } = useLocation();
 

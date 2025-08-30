@@ -62,7 +62,7 @@ const theme = createTheme({
       height: '100vh',
     },
     mypage: {
-      height: 'calc(100vh - 200px)',
+      height: 'calc(100vh - 220px)',
     },
   },
 });

@@ -5,6 +5,7 @@ import { AccessTokenProvider } from './contexts/AccessTokenContext';
 import { AlertProvider } from './contexts/AlertContext';
 import { LoadingProvider } from './contexts/LoadingContext';
 import { ToastProvider } from './contexts/ToastContext';
+import MyPageLayout from './layouts/MyPageLayout';
 import ServiceLayout from './layouts/ServiceLayout';
 import StandaloneLayout from './layouts/StandaloneLayout';
 import Error from './pages/Error';
@@ -13,6 +14,10 @@ import Privacy from './pages/Footer/Privacy';
 import Terms from './pages/Footer/Terms';
 import Login from './pages/Login';
 import Main from './pages/Main';
+import MyPage from './pages/MyPage';
+import Account from './pages/MyPage/Account';
+import Statistics from './pages/MyPage/Statistics';
+import Urls from './pages/MyPage/Urls';
 import Register from './pages/Register';
 import ResetPassword from './pages/ResetPassword';
 import theme from './theme';
@@ -38,6 +43,14 @@ function App() {
                     {/* Footer pages. */}
                     <Route path="/privacy" element={<Privacy />} />
                     <Route path="/terms" element={<Terms />} />
+                  </Route>
+
+                  {/* My pages layout. */}
+                  <Route element={<MyPageLayout />}>
+                    <Route path="/mypage" element={<MyPage />} />
+                    <Route path="/mypage/urls" element={<Urls />} />
+                    <Route path="/mypage/statistics" element={<Statistics />} />
+                    <Route path="/mypage/account" element={<Account />} />
                   </Route>
 
                   {/* Standalone pages layout. */}
