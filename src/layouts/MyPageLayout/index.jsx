@@ -5,7 +5,7 @@ import Footer from '../../components/Common/Layout/Footer';
 import Header from '../../components/Common/Layout/Header';
 import PageLayout from '../../components/Common/Layout/PageLayout';
 import ScrollToTop from '../../components/Common/Layout/ScrollToTop';
-import Content from '../../components/MyPage/Layout/Content';
+import ContentWrapper from '../../components/MyPage/Layout/ContentWrapper';
 import Sidebar from '../../components/MyPage/Layout/Sidebar';
 
 function MyPageLayout() {
@@ -15,9 +15,9 @@ function MyPageLayout() {
       <Header />
       <BackgroundWrapper sx={{ flexDirection: 'row', gap: 3, padding: 3 }}>
         <Sidebar />
-        <Content>
+        <ContentWrapper>
           <Outlet />
-        </Content>
+        </ContentWrapper>
       </BackgroundWrapper>
       <Footer />
     </PageLayout>
