@@ -61,6 +61,9 @@ const theme = createTheme({
     main: {
       height: '100vh',
     },
+    mypage: {
+      height: 'calc(100vh - 200px)',
+    },
   },
 });
 
