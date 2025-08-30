@@ -4,12 +4,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { useNavigate } from 'react-router-dom';
 
-import { useAccessTokenContext } from '../../../contexts/AccessTokenContext';
-import { useAlertContext } from '../../../contexts/AlertContext';
-import { useToastContext } from '../../../contexts/ToastContext';
-import { postLogout } from '../../../services/user';
-import Button from '../Button';
-import Logo from '../Logo';
+import { useAccessTokenContext } from '../../../../contexts/AccessTokenContext';
+import { useAlertContext } from '../../../../contexts/AlertContext';
+import { useToastContext } from '../../../../contexts/ToastContext';
+import { postLogout } from '../../../../services/user';
+import Button from '../../Button';
+import Logo from '../../Logo';
 
 import { HeaderWrapper, ButtonWrapper } from './styled';
 

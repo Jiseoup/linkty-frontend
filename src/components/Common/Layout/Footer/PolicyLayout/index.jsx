@@ -1,4 +1,5 @@
-import { getCopyrightText } from '../../../../utils/copyright';
+// import { getCopyrightText } from '../../../../utils/copyright';
+import { getCopyrightText } from '../../../../../utils/copyright';
 
 import {
   PolicyWrapper,

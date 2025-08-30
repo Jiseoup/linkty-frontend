@@ -5,7 +5,7 @@ import SecurityIcon from '@mui/icons-material/Security';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import { useNavigate } from 'react-router-dom';
 
-import { getCopyrightText } from '../../../utils/copyright';
+import { getCopyrightText } from '../../../../utils/copyright';
 
 import {
   StyledFooter,

@@ -5,7 +5,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SendIcon from '@mui/icons-material/Send';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 
-import { useToastContext } from '../../../../contexts/ToastContext';
+import { useToastContext } from '../../../../../contexts/ToastContext';
 
 import {
   DialogWrapper,

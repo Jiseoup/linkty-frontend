@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import Button from '../../Button';
+import Button from '../../../Button';
 
 export const DialogWrapper = styled(Dialog)(({ theme }) => ({
   '& .MuiDialog-paper': {

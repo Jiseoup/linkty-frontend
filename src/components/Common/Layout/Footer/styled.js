@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { styled, alpha } from '@mui/material/styles';
 
-import Button from '../Button';
+import Button from '../../Button';
 
 export const StyledFooter = styled('footer')(({ theme }) => ({
   width: '100%',

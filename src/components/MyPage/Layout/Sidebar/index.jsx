@@ -5,7 +5,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import { Link, useLocation } from 'react-router-dom';
 
-import { MENUS } from '../../../constants/MyPage/Sidebar';
+import { MENUS } from '../../../../constants/MyPage/Sidebar';
 
 import {
   SidebarWrapper,

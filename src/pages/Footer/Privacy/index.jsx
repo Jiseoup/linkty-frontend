@@ -7,10 +7,10 @@ import StorageIcon from '@mui/icons-material/Storage';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
-import PolicyContact from '../../../components/Common/Footer/PolicyContact';
-import PolicyContent from '../../../components/Common/Footer/PolicyContent';
-import PolicyDescription from '../../../components/Common/Footer/PolicyDescription';
-import PolicyLayout from '../../../components/Common/Footer/PolicyLayout';
+import PolicyContact from '../../../components/Common/Layout/Footer/PolicyContact';
+import PolicyContent from '../../../components/Common/Layout/Footer/PolicyContent';
+import PolicyDescription from '../../../components/Common/Layout/Footer/PolicyDescription';
+import PolicyLayout from '../../../components/Common/Layout/Footer/PolicyLayout';
 import {
   TITLE,
   LAST_UPDATED,
