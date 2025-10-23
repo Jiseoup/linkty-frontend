@@ -1,5 +1,4 @@
 import SecurityIcon from '@mui/icons-material/Security';
-import { Alert } from '@mui/material';
 
 import Button from '../../../Common/Button';
 import PasswordForm from '../../../Common/PasswordForm';
@@ -8,19 +7,15 @@ import TextField from '../../../Common/TextField';
 import ContentCard from '../ContentCard';
 
 function PasswordCard({
+  password,
   newPassword,
   newPasswordConfirm,
+  onPasswordChange,
   onNewPasswordChange,
   onNewPasswordConfirmChange,
 }) {
   return (
     <ContentCard title="비밀번호 변경" icon={<SecurityIcon />}>
-      {/* TODO: Alert 없이 디자인 할지 고민 */}
-      {/* Alert contents. */}
-      <Alert severity="info" sx={{ mb: 3 }}>
-        보안을 위해 정기적으로 비밀번호를 변경해 주세요.
-      </Alert>
-
       {/* Current password contents. */}
       <RowBox>
         <TextField
@@ -28,6 +23,9 @@ function PasswordCard({
           name="password"
           label="현재 비밀번호"
           placeholder="현재 비밀번호를 입력해주세요."
+          // TODO: value랑 onChange 필요할까?
+          value={password}
+          onChange={onPasswordChange}
         />
       </RowBox>
 
@@ -43,7 +41,7 @@ function PasswordCard({
         onPasswordConfirmChange={onNewPasswordConfirmChange}
       />
 
-      {/* TODO: 버튼 사이즈 고민 */}
+      {/* TODO: Disable 조건 넣기 - 모두 입력되고 비밀번호 일치할 때 클릭 가능 */}
       {/* Change password button. */}
       <Button
         text="비밀번호 변경"
@@ -51,7 +49,6 @@ function PasswordCard({
         variant="contained"
         color="primary"
         fullWidth
-        sx={{ height: '40px', fontSize: '14' }}
       />
     </ContentCard>
   );
