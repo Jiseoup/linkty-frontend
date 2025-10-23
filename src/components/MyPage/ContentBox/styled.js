@@ -6,5 +6,6 @@ export const ContentBox = styled(Box)(({ theme }) => ({
   justifyContent: 'flex-start',
   padding: theme.spacing(3),
   maxHeight: '100%',
+  boxSizing: 'border-box',
   overflowY: 'auto',
 }));
