@@ -1,11 +1,9 @@
 import PersonIcon from '@mui/icons-material/Person';
 import TimelineIcon from '@mui/icons-material/Timeline';
 
+import ContentCard from '../ContentCard';
+
 import {
-  StyledCard,
-  TitleBox,
-  TitleText,
-  CardDivider,
   ContentBox,
   InfoBox,
   InfoLabel,
@@ -25,16 +23,7 @@ import {
 
 function InfoCard() {
   return (
-    <StyledCard>
-      {/* Title contents. */}
-      <TitleBox>
-        <PersonIcon />
-        <TitleText>계정 정보</TitleText>
-      </TitleBox>
-
-      {/* Card divider. */}
-      <CardDivider />
-
+    <ContentCard title="계정 정보" icon={<PersonIcon />}>
       {/* Body contents. */}
       <ContentBox>
         {/* Email info contents. */}
@@ -99,7 +88,7 @@ function InfoCard() {
           </StatsRow>
         </StatsBox>
       </ContentBox>
-    </StyledCard>
+    </ContentCard>
   );
 }
 

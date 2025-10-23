@@ -5,8 +5,7 @@ import Button from '../../../Common/Button';
 import PasswordForm from '../../../Common/PasswordForm';
 import RowBox from '../../../Common/RowBox';
 import TextField from '../../../Common/TextField';
-
-import { StyledCard, TitleBox, TitleText, CardDivider } from './styled';
+import ContentCard from '../ContentCard';
 
 function PasswordCard({
   newPassword,
@@ -15,16 +14,7 @@ function PasswordCard({
   onNewPasswordConfirmChange,
 }) {
   return (
-    <StyledCard>
-      {/* Title contents. */}
-      <TitleBox>
-        <SecurityIcon />
-        <TitleText>비밀번호 변경</TitleText>
-      </TitleBox>
-
-      {/* Card divider. */}
-      <CardDivider />
-
+    <ContentCard title="비밀번호 변경" icon={<SecurityIcon />}>
       {/* TODO: Alert 없이 디자인 할지 고민 */}
       {/* Alert contents. */}
       <Alert severity="info" sx={{ mb: 3 }}>
@@ -63,7 +53,7 @@ function PasswordCard({
         fullWidth
         sx={{ height: '40px', fontSize: '14' }}
       />
-    </StyledCard>
+    </ContentCard>
   );
 }
 
