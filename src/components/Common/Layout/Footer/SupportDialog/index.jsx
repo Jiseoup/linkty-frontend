@@ -48,6 +48,7 @@ function SupportDialog({ isOpen, onClose }) {
   return (
     <Dialog
       title="고객센터"
+      titleColor="primary"
       icon={<SupportAgentIcon fontSize="medium" color="primary" />}
       isOpen={isOpen}
       onClose={onClose}

@@ -32,13 +32,12 @@ export const TitleBox = styled(Box)(({ theme }) => ({
   margin: '0 auto',
 }));
 
-export const TitleText = styled(DialogTitle)(({ theme }) => ({
+export const TitleText = styled(DialogTitle)({
   fontSize: 20,
   fontWeight: 800,
-  color: theme.palette.primary.main,
   margin: 0,
   padding: 0,
-}));
+});
 
 export const CloseButton = styled(IconButton)(({ theme }) => ({
   top: theme.spacing(1),

@@ -11,7 +11,15 @@ import {
   ConfirmButton,
 } from './styled';
 
-function Dialog({ title, icon, isOpen, onClose, showFooter = true, children }) {
+function Dialog({
+  title,
+  titleColor,
+  icon,
+  isOpen,
+  onClose,
+  showFooter = true,
+  children,
+}) {
   return (
     <DialogWrapper open={isOpen} onClose={onClose}>
       {/* Header contents. */}
@@ -19,7 +27,7 @@ function Dialog({ title, icon, isOpen, onClose, showFooter = true, children }) {
         {/* Title text. */}
         <TitleBox>
           {icon}
-          <TitleText>{title}</TitleText>
+          <TitleText color={titleColor}>{title}</TitleText>
         </TitleBox>
 
         {/* Close Button. */}
