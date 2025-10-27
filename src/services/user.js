@@ -12,6 +12,14 @@ export const postRegister = async ({ email, password, captchaToken }) => {
   return response.data;
 };
 
+// [DELETE] Delete user.
+export const deleteWithdraw = async ({ password }) => {
+  const response = await axiosInstance.delete(`${BASE_URL}/withdraw`, {
+    data: { password },
+  });
+  return response.data;
+};
+
 // [POST] User login.
 export const postLogin = async ({ email, password, rememberMe }) => {
   const response = await axiosInstance.post(`${BASE_URL}/login`, {

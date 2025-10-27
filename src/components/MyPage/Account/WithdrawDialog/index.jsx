@@ -2,7 +2,12 @@ import { useState } from 'react';
 
 import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 import { Checkbox, FormControlLabel } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
+import { useAccessTokenContext } from '../../../../contexts/AccessTokenContext';
+import { useAlertContext } from '../../../../contexts/AlertContext';
+import { parseErrorMessage } from '../../../../exceptions/errorParser';
+import { deleteWithdraw } from '../../../../services/user';
 import Dialog from '../../../Common/Dialog';
 
 import {
@@ -20,6 +25,11 @@ import {
 } from './styled';
 
 function WithdrawDialog({ isOpen, onClose }) {
+  const navigate = useNavigate();
+
+  const { alertSuccess, alertError } = useAlertContext();
+  const { clearAccessToken } = useAccessTokenContext();
+
   const [password, setPassword] = useState(null);
   const [isConfirmed, setIsConfirmed] = useState(false);
 
@@ -28,9 +38,24 @@ function WithdrawDialog({ isOpen, onClose }) {
 
   const isValid = password && isConfirmed;
 
-  const onWithdrawButtonClick = () => {
-    // TODO: 회원 탈퇴 로직 추가
-    console.log('회원 탈퇴 처리');
+  // Withdraw Button Click Handler.
+  const onWithdrawButtonClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      await deleteWithdraw({ password });
+      clearAccessToken();
+      alertSuccess({
+        title: '회원 탈퇴가 완료되었습니다.',
+        message: '그동안 Linkty를 이용해주셔서 감사합니다.',
+        onClose: () => navigate('/'),
+      });
+    } catch (error) {
+      alertError({
+        title: '회원 탈퇴에 실패했습니다.',
+        message: parseErrorMessage(error),
+      });
+    }
   };
 
   // Reset state when dialog closes.

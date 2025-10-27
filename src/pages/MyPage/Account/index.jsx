@@ -7,6 +7,7 @@ import AccountContentBox from '../../../components/MyPage/Account/AccountContent
 import InfoCard from '../../../components/MyPage/Account/InfoCard';
 import PasswordCard from '../../../components/MyPage/Account/PasswordCard';
 import WithdrawButton from '../../../components/MyPage/Account/WithdrawButton';
+import WithdrawDialog from '../../../components/MyPage/Account/WithdrawDialog';
 import Content from '../../../components/MyPage/Content';
 import ContentBox from '../../../components/MyPage/ContentBox';
 
@@ -14,11 +15,22 @@ function Account() {
   const [password, setPassword] = useState(null);
   const [newPassword, setNewPassword] = useState(null);
   const [newPasswordConfirm, setNewPasswordConfirm] = useState(null);
+  const [isWithdrawDialogOpen, setIsWithdrawDialogOpen] = useState(false);
 
   const onPasswordChange = (e) => setPassword(e.target.value);
   const onNewPasswordChange = (e) => setNewPassword(e.target.value);
   const onNewPasswordConfirmChange = (e) =>
     setNewPasswordConfirm(e.target.value);
+
+  // Withdraw button click handler.
+  const onWithdrawDialogClick = () => {
+    setIsWithdrawDialogOpen(true);
+  };
+
+  // Withdraw button close handler.
+  const onWithdrawDialogClose = () => {
+    setIsWithdrawDialogOpen(false);
+  };
 
   return (
     <ContentBox>
@@ -47,8 +59,15 @@ function Account() {
           variant="contained"
           color="error"
           startIcon={<PersonRemoveIcon />}
+          onClick={onWithdrawDialogClick}
         />
       </Content>
+
+      {/* Withdraw Dialog Component. */}
+      <WithdrawDialog
+        isOpen={isWithdrawDialogOpen}
+        onClose={onWithdrawDialogClose}
+      />
     </ContentBox>
   );
 }
