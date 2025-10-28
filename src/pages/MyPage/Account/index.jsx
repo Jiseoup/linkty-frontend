@@ -12,15 +12,7 @@ import Content from '../../../components/MyPage/Content';
 import ContentBox from '../../../components/MyPage/ContentBox';
 
 function Account() {
-  const [password, setPassword] = useState(null);
-  const [newPassword, setNewPassword] = useState(null);
-  const [newPasswordConfirm, setNewPasswordConfirm] = useState(null);
   const [isWithdrawDialogOpen, setIsWithdrawDialogOpen] = useState(false);
-
-  const onPasswordChange = (e) => setPassword(e.target.value);
-  const onNewPasswordChange = (e) => setNewPassword(e.target.value);
-  const onNewPasswordConfirmChange = (e) =>
-    setNewPasswordConfirm(e.target.value);
 
   // Withdraw button click handler.
   const onWithdrawDialogClick = () => {
@@ -38,19 +30,13 @@ function Account() {
         title="계정 설정"
         titleIcon={<SettingsIcon sx={{ fontSize: 32 }} />}
       >
+        {/* Account Content Box Component. */}
         <AccountContentBox>
           {/* Account Informations Component. */}
           <InfoCard />
 
           {/* Change Password Component. */}
-          <PasswordCard
-            password={password}
-            newPassword={newPassword}
-            newPasswordConfirm={newPasswordConfirm}
-            onPasswordChange={onPasswordChange}
-            onNewPasswordChange={onNewPasswordChange}
-            onNewPasswordConfirmChange={onNewPasswordConfirmChange}
-          />
+          <PasswordCard />
         </AccountContentBox>
 
         {/* Account Withdrawal Button Component. */}
