@@ -30,6 +30,7 @@ export const ERROR_MESSAGES = {
   [ERROR_CODES.INVALID_EMAIL_OR_PASSWORD]:
     '이메일 또는 비밀번호가 올바르지 않습니다.',
   [ERROR_CODES.INVALID_PASSWORD]: '비밀번호가 일치하지 않습니다.',
+  [ERROR_CODES.INVALID_CURRENT_PASSWORD]: '현재 비밀번호가 일치하지 않습니다.',
   [ERROR_CODES.RESET_PASSWORD_EXPIRED]:
     '이 비밀번호 재설정 URL은 만료되었습니다.',
 

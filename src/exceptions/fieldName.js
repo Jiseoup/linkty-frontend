@@ -2,6 +2,8 @@ export const fieldName = (field) => {
   const map = {
     email: '이메일',
     password: '비밀번호',
+    currentPassword: '현재 비밀번호',
+    newPassword: '새 비밀번호',
     code: '인증번호',
     originalUrl: 'URL',
     alias: 'URL 별칭',
