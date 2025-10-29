@@ -1,3 +1,4 @@
+// Format copyright text and returns it.
 export function getCopyrightText() {
   const startYear = 2025;
   const currentYear = new Date().getFullYear();

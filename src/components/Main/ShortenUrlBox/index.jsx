@@ -5,7 +5,9 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import { useNavigate } from 'react-router-dom';
 
+import { COPY_URL_SUCCESS, COPY_URL_FAILURE } from '../../../constants/Toast';
 import { useToastContext } from '../../../contexts/ToastContext';
+import { getFullShortenUrl, copyUrl, openUrl } from '../../../utils/url';
 
 import {
   ShortenUrlCard,
@@ -38,25 +40,16 @@ function ShortenUrlBox({
 
   if (!shortenUrl) return null;
 
-  const fullUrl = `${process.env.REACT_APP_BASE_URL}/${shortenUrl}`;
+  const fullUrl = getFullShortenUrl(shortenUrl);
 
   // Copy URL button click handler.
-  const onCopyUrlClick = () => {
-    if (!fullUrl) return;
-    navigator.clipboard
-      .writeText(fullUrl)
-      .then(() => {
-        toastSuccess({ message: 'URL이 클립보드에 복사되었습니다!' });
-      })
-      .catch(() => {
-        toastError({ message: 'URL 복사에 실패했습니다. 다시 시도해주세요.' });
-      });
-  };
-
-  // Open URL button click handler.
-  const onOpenUrlClick = () => {
-    if (!fullUrl) return;
-    window.open(fullUrl, '_blank', 'noopener noreferrer');
+  const onCopyUrlClick = async () => {
+    const success = await copyUrl(fullUrl);
+    if (success) {
+      toastSuccess({ message: COPY_URL_SUCCESS });
+    } else {
+      toastError({ message: COPY_URL_FAILURE });
+    }
   };
 
   // Register button click handler.
@@ -89,7 +82,7 @@ function ShortenUrlBox({
               variant="outlined"
               color="primary"
               startIcon={<OpenInNewIcon />}
-              onClick={onOpenUrlClick}
+              onClick={() => openUrl(fullUrl)}
             />
           </UrlButtonBox>
         </ContentBox>
