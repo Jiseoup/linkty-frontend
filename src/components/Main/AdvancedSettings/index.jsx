@@ -3,13 +3,13 @@ import { useState } from 'react';
 import { Collapse } from '@mui/material';
 import dayjs from 'dayjs';
 
+import { MAX_ALIAS_LENGTH } from '../../../constants/Common';
 import DateTimePicker from '../../Common/DateTimePicker';
 import FoldButton from '../../Common/FoldButton';
+import HelperText from '../../Common/HelperText';
 import LabelTooltip from '../../Common/LabelTooltip';
 import RowBox from '../../Common/RowBox';
 import TextField from '../../Common/TextField';
-
-import { AliasHelperText } from './styled';
 
 // Component for Advanced Settings operations.
 function AdvancedSettings({
@@ -21,8 +21,6 @@ function AdvancedSettings({
   setAlias,
   isLoggedIn,
 }) {
-  const MAX_ALIAS_LENGTH = 20;
-
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   return (
@@ -113,9 +111,9 @@ function AdvancedSettings({
             disabled={!isLoggedIn}
           />
         </RowBox>
-        <AliasHelperText>
+        <HelperText sx={{ ml: 1.75 }}>
           {`${(alias || '').trim().length} / ${MAX_ALIAS_LENGTH}자`}
-        </AliasHelperText>
+        </HelperText>
       </Collapse>
     </>
   );
