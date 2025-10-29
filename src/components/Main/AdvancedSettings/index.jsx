@@ -4,6 +4,14 @@ import { Collapse } from '@mui/material';
 import dayjs from 'dayjs';
 
 import { MAX_ALIAS_LENGTH } from '../../../constants/Common';
+import {
+  LOGIN_REQUIRED_TOOLTIP,
+  ACTIVE_DATE_TOOLTIP,
+  EXPIRE_DATE_TOOLTIP,
+  ALIAS_TOOLTIP,
+  STARRED_TOOLTIP,
+  NON_MEMBER_CREATION_TOOLTIP,
+} from '../../../constants/Tooltip';
 import DateTimePicker from '../../Common/DateTimePicker';
 import FoldButton from '../../Common/FoldButton';
 import LabelTooltip from '../../Common/LabelTooltip';
@@ -53,16 +61,7 @@ function AdvancedSettings({
               <LabelTooltip
                 label="URL 활성일"
                 tooltip={
-                  isLoggedIn ? (
-                    <>
-                      설정한 시점 이전에는 단축 URL이 비활성화됩니다.
-                      <br />
-                      시점은 단축 URL을 생성한 사용자의 시스템 시간을 기준으로
-                      적용됩니다.
-                    </>
-                  ) : (
-                    '로그인 후 이용 가능합니다.'
-                  )
+                  isLoggedIn ? ACTIVE_DATE_TOOLTIP : LOGIN_REQUIRED_TOOLTIP
                 }
               />
             }
@@ -76,16 +75,7 @@ function AdvancedSettings({
               <LabelTooltip
                 label="URL 만료일"
                 tooltip={
-                  isLoggedIn ? (
-                    <>
-                      설정한 시점 이후에는 단축 URL이 비활성화됩니다.
-                      <br />
-                      시점은 단축 URL을 생성한 사용자의 시스템 시간을 기준으로
-                      적용됩니다.
-                    </>
-                  ) : (
-                    '로그인 후 이용 가능합니다.'
-                  )
+                  isLoggedIn ? EXPIRE_DATE_TOOLTIP : LOGIN_REQUIRED_TOOLTIP
                 }
               />
             }
@@ -102,17 +92,7 @@ function AdvancedSettings({
             label={
               <LabelTooltip
                 label="URL 별칭"
-                tooltip={
-                  isLoggedIn ? (
-                    <>
-                      단축 URL의 별칭을 설정합니다.
-                      <br />
-                      생성한 URL은 마이페이지에서 관리 가능합니다.
-                    </>
-                  ) : (
-                    '로그인 후 이용 가능합니다.'
-                  )
-                }
+                tooltip={isLoggedIn ? ALIAS_TOOLTIP : LOGIN_REQUIRED_TOOLTIP}
               />
             }
             placeholder="URL 별칭을 입력해주세요."
@@ -145,9 +125,7 @@ function AdvancedSettings({
                   label="즐겨찾기에 추가"
                   iconSize="14px"
                   tooltip={
-                    isLoggedIn
-                      ? '체크 시 즐겨찾는 단축 URL로 저장됩니다.'
-                      : '로그인 후 이용 가능합니다.'
+                    isLoggedIn ? STARRED_TOOLTIP : LOGIN_REQUIRED_TOOLTIP
                   }
                 />
               }
@@ -168,15 +146,9 @@ function AdvancedSettings({
                   label="비회원으로 생성"
                   iconSize="14px"
                   tooltip={
-                    isLoggedIn ? (
-                      <>
-                        체크 시 단축 URL이 계정에 저장되지 않습니다.
-                        <br />
-                        모든 고급 설정이 적용되지 않습니다.
-                      </>
-                    ) : (
-                      '로그인 후 이용 가능합니다.'
-                    )
+                    isLoggedIn
+                      ? NON_MEMBER_CREATION_TOOLTIP
+                      : LOGIN_REQUIRED_TOOLTIP
                   }
                 />
               }
