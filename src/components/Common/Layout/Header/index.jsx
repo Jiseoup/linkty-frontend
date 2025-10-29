@@ -78,7 +78,6 @@ function Header() {
               variant="contained"
               color="primary"
               startIcon={<PersonIcon />}
-              // TODO: Mypage onClick 함수 구현 필요
               onClick={onMyPageClick}
             />
           </>
