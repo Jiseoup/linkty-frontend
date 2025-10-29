@@ -8,6 +8,5 @@ export const Container = styled('span')({
 
 export const HelpIcon = styled(HelpOutlineIcon)({
   cursor: 'help',
-  fontSize: '16px',
   marginLeft: 4,
 });
