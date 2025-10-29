@@ -6,12 +6,16 @@ export const postShortenUrl = async ({
   activeDate,
   expireDate,
   alias,
+  starred,
+  nonMemberCreation,
 }) => {
   const response = await axiosInstance.post('/shorten-url', {
     originalUrl,
     activeDate,
     expireDate,
     alias,
+    starred,
+    nonMemberCreation,
   });
   return response.data;
 };

@@ -23,6 +23,8 @@ function Main() {
   const [activeDate, setActiveDate] = useState(null);
   const [expireDate, setExpireDate] = useState(null);
   const [alias, setAlias] = useState(null);
+  const [starred, setStarred] = useState(false);
+  const [nonMemberCreation, setNonMemberCreation] = useState(false);
   const [urlInfo, setUrlInfo] = useState({
     shortenUrl: null,
     activeDate: null,
@@ -42,9 +44,9 @@ function Main() {
         originalUrl: originalUrl,
         activeDate: formattedActiveDate || null,
         expireDate: formattedExpireDate || null,
-        // TODO: 로그인 유저일 경우, 새 단축 URL 등의 이름으로 생성
-        // TODO: null 일 경우 마이페이지에서 이름 없는 URL 등으로 표기하기?
         alias: alias || null,
+        starred: starred || false,
+        nonMemberCreation: nonMemberCreation || false,
       });
 
       // Set created shorten url informations.
@@ -93,9 +95,13 @@ function Main() {
             activeDate={activeDate}
             expireDate={expireDate}
             alias={alias}
+            starred={starred}
+            nonMemberCreation={nonMemberCreation}
             setActiveDate={setActiveDate}
             setExpireDate={setExpireDate}
             setAlias={setAlias}
+            setStarred={setStarred}
+            setNonMemberCreation={setNonMemberCreation}
             isLoggedIn={isLoggedIn}
           />
         </FormBox>
