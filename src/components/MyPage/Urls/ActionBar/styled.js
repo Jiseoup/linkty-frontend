@@ -8,7 +8,7 @@ export const Container = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  marginBottom: theme.spacing(3),
+  marginBottom: theme.spacing(2.5),
   gap: theme.spacing(2),
 }));
 
