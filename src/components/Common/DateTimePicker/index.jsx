@@ -14,7 +14,7 @@ function DateTimePicker(props) {
 }
 
 DateTimePicker.defaultProps = {
-  format: 'YYYY-MM-DD hh:mm',
+  format: 'YYYY-MM-DD HH:mm',
   slotProps: {
     textField: {
       fullWidth: true,
