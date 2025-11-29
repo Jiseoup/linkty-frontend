@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAccessTokenContext } from '../../../../contexts/AccessTokenContext';
 import { useAlertContext } from '../../../../contexts/AlertContext';
 import { parseErrorMessage } from '../../../../exceptions/errorParser';
-import { postChangePassword } from '../../../../services/user';
+import { patchChangePassword } from '../../../../services/user';
 import Button from '../../../Common/Button';
 import PasswordForm from '../../../Common/PasswordForm';
 import RowBox from '../../../Common/RowBox';
@@ -46,7 +46,7 @@ function PasswordCard() {
     }
 
     try {
-      await postChangePassword({ currentPassword, newPassword });
+      await patchChangePassword({ currentPassword, newPassword });
       clearAccessToken();
       alertSuccess({
         title: '성공적으로 비밀번호가 변경되었습니다.',

@@ -59,9 +59,9 @@ export const postResetPassword = async ({ token, password }) => {
   return response.data;
 };
 
-// [POST] Change Password.
-export const postChangePassword = async ({ currentPassword, newPassword }) => {
-  const response = await axiosInstance.post(`${BASE_URL}/change-password`, {
+// [PATCH] Change Password.
+export const patchChangePassword = async ({ currentPassword, newPassword }) => {
+  const response = await axiosInstance.patch(`${BASE_URL}/change-password`, {
     currentPassword,
     newPassword,
   });
